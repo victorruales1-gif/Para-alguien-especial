@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti ✨</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Nuestra Historia</h1>
+        <p class="subtitulo">Aún sin título oficial, pero con sentimiento real.</p>
+
+        <!-- SECCIÓN DEL CONTADOR POÉTICO -->
+        <div class="contador-caja">
+            <h2 id="titulo-contador">Desde que te conozco, mi corazón ha latido por ti...</h2>
+            <p id="contador">❤️ Calculando latidos...</p>
+            <p class="poesia-contador">El 11 de Mayo de 2026 mi corazón aprendió a latir por dos.</p>
+        </div>
+
+        <!-- SECCIÓN DE LA PLAYLIST -->
+        <h2>Nuestra Banda Sonora</h2>
+        <p class="nota-musical">▶ Toca play y cierra los ojos...</p>
+        <iframe style="border-radius:12px" 
+        src="https://open.spotify.com/embed/playlist/0cJ3wxP8aD23ZDpYJV9IVF?utm_source=generator" 
+        width="100%" height="380" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+        </iframe>
+
+        <!-- SECCIÓN DE GALERÍA -->
+        <h2>Momentos que Atesoro</h2>
+        <div id="galeria">
+            <!-- Aquí se cargarán las fotos desde mensajes.js -->
+        </div>
+
+        <!-- SECCIÓN DE POEMAS Y MENSAJES -->
+        <h2>Cartas para Ti</h2>
+        <div id="lista-mensajes">
+            <!-- Aquí se cargarán los poemas desde mensajes.js -->
+        </div>
+
+        <footer>
+            <p>Hecho con amor (y un poco de código) para ti.</p>
+        </footer>
+    </div>
+
+    <script src="mensajes.js"></script>
+</body>
+</html>

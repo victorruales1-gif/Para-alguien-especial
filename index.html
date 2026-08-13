@@ -4,93 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Ti ✨</title>
-    <link rel="stylesheet" href="estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ==========================================
-           FONDO ANIMADO CON PARTÍCULAS DORADAS
-           ========================================== */
-        body {
-            background-color: #FDF8F0 !important;
-            position: relative;
-            overflow-x: hidden;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            background-image: 
-                radial-gradient(circle, rgba(201, 162, 39, 0.15) 1px, transparent 1px),
-                radial-gradient(circle, rgba(201, 162, 39, 0.1) 2px, transparent 2px),
-                radial-gradient(circle, rgba(212, 175, 55, 0.08) 3px, transparent 3px);
-            background-size: 
-                150px 150px,
-                250px 250px,
-                350px 350px;
-            background-position: 
-                0 0,
-                50px 100px,
-                100px 50px;
-            animation: flotarParticulas 20s linear infinite;
-        }
-        
-        @keyframes flotarParticulas {
-            0% {
-                background-position: 0 0, 50px 100px, 100px 50px;
-            }
-            50% {
-                background-position: 75px 150px, 150px 200px, 200px 100px;
-            }
-            100% {
-                background-position: 150px 300px, 250px 400px, 300px 200px;
-            }
-        }
-        
-        body::after {
-            content: '❤';
-            position: fixed;
-            top: 20%;
-            left: 10%;
-            font-size: 30px;
-            color: rgba(201, 162, 39, 0.04);
-            pointer-events: none;
-            z-index: 0;
-            animation: latirCorazon 3s ease-in-out infinite;
-        }
-        
-        @keyframes latirCorazon {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.04;
-            }
-            50% {
-                transform: scale(1.3);
-                opacity: 0.08;
-            }
-        }
-        
-        .contenedor {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        
-        .contador-caja,
-        .mensaje-item,
-        .pregunta-item {
-            background-color: rgba(255, 255, 255, 0.9) !important;
-            backdrop-filter: blur(5px);
-        }
-    </style>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
@@ -101,26 +16,23 @@
             <p class="subtitulo">Aún sin título oficial, pero con sentimiento real.</p>
         </header>
 
-        <!-- SECCIÓN DEL CONTADOR POÉTICO -->
+        <!-- CONTADOR -->
         <div class="contador-caja">
             <h2 id="titulo-contador">Desde que te conozco, mi corazón ha latido por ti...</h2>
             <p id="contador">❤️ Calculando latidos...</p>
-            <p class="poesia-contador">El 06 de Mayo de 2026 mi corazón aprendió a latir por dos.</p>
+            <p class="poesia-contador">El 11 de Mayo de 2026 mi corazón aprendió a latir por dos.</p>
         </div>
 
-        <!-- SECCIÓN DE MENSAJE SEGÚN LA HORA -->
-        <div class="seccion" style="margin-top: 20px;">
-            <div class="mensaje-hora" style="text-align: center; padding: 20px; margin: 20px 0;">
-                <p id="saludo-hora" style="font-size: 1.4em; font-family: 'Cormorant Garamond', serif; color: #C9A227; font-style: italic; margin-bottom: 10px;"></p>
-                <p id="sub-saludo-hora" style="font-size: 1.1em; color: #8A7E72;"></p>
-            </div>
+        <!-- MENSAJE SEGÚN LA HORA -->
+        <div class="mensaje-hora">
+            <p id="saludo-hora"></p>
+            <p id="sub-saludo-hora"></p>
         </div>
 
-        <!-- SECCIÓN DE LA PLAYLIST -->
+        <!-- PLAYLIST -->
         <div class="seccion">
-            <h2>Canciones que siento por ti</h2>
+            <h2>Lo que No Puedo Decirte, lo Canto</h2>
             <p class="nota-musical">▶ Toca play y cierra los ojos...</p>
-            
             <iframe style="border-radius:12px" 
             src="https://open.spotify.com/embed/playlist/0cJ3wxP8aD23ZDpYJV9IVF?utm_source=generator" 
             width="100%" height="380" 
@@ -131,15 +43,13 @@
             </iframe>
         </div>
 
-        <!-- SECCIÓN DE GALERÍA -->
+        <!-- GALERÍA -->
         <div class="seccion">
             <h2>Cosas que Me Recuerdan a Ti</h2>
-            <div id="galeria">
-                <!-- Las fotos se cargan desde mensajes.js -->
-            </div>
+            <div id="galeria"></div>
         </div>
 
-        <!-- SECCIÓN DE RAZONES (15) -->
+        <!-- 15 RAZONES -->
         <div class="seccion">
             <h2>Pequeñas Razones, Grandes Sentimientos</h2>
             <p class="nota-musical">Un número nunca alcanzará para contarlas todas...</p>
@@ -162,100 +72,88 @@
             </div>
         </div>
 
-        <!-- SECCIÓN DE POEMAS Y MENSAJES -->
+        <!-- POEMAS -->
         <div class="seccion">
             <h2>Cartas para Ti</h2>
-            <div id="lista-mensajes">
-                <!-- Los poemas se cargan desde mensajes.js -->
-            </div>
+            <div id="lista-mensajes"></div>
         </div>
 
-        <!-- SECCIÓN DE PREGUNTAS INTERACTIVAS (8) -->
+        <!-- PREGUNTAS INTERACTIVAS -->
         <div class="seccion">
             <h2>Preguntas que Me Hago Contigo</h2>
             <p class="nota-musical">Si quieres, escribe aquí tus respuestas... (se guardarán en tu navegador)</p>
             
-            <div class="preguntas-container">
-                <div class="pregunta-item">
-                    <label for="pregunta1">✦ ¿Qué es lo primero que pensaste cuando me viste?</label>
-                    <textarea id="pregunta1" rows="3" placeholder="Escribe aquí..."></textarea>
-                </div>
-                
-                <div class="pregunta-item">
-                    <label for="pregunta2">✦ ¿Cuál es tu recuerdo favorito conmigo?</label>
-                    <textarea id="pregunta2" rows="3" placeholder="Escribe aquí..."></textarea>
-                </div>
-                
-                <div class="pregunta-item">
-                    <label for="pregunta3">✦ ¿Qué canción te recuerda a mí?</label>
-                    <textarea id="pregunta3" rows="2" placeholder="Escribe aquí..."></textarea>
-                </div>
-                
-                <div class="pregunta-item">
-                    <label for="pregunta4">✦ ¿A dónde te gustaría viajar conmigo?</label>
-                    <textarea id="pregunta4" rows="2" placeholder="Escribe aquí..."></textarea>
-                </div>
-                
-                <div class="pregunta-item">
-                    <label for="pregunta5">✦ ¿Qué es algo que aún no sabes de mí?</label>
-                    <textarea id="pregunta5" rows="3" placeholder="Escribe aquí..."></textarea>
-                </div>
-                
-                <div class="pregunta-item">
-                    <label for="pregunta6">✦ ¿Qué es algo que siempre has querido hacer pero nunca te has atrevido?</label>
-                    <textarea id="pregunta6" rows="3" placeholder="Escribe aquí..."></textarea>
-                </div>
-                
-                <div class="pregunta-item">
-                    <label for="pregunta7">✦ ¿Cuál es tu recuerdo favorito de tu infancia?</label>
-                    <textarea id="pregunta7" rows="3" placeholder="Escribe aquí..."></textarea>
-                </div>
-                
-                <div class="pregunta-item">
-                    <label for="pregunta8">✦ ¿Qué te hace sonreír sin importar lo que pase?</label>
-                    <textarea id="pregunta8" rows="2" placeholder="Escribe aquí..."></textarea>
-                </div>
+            <div class="pregunta-item">
+                <label>✦ ¿Qué es lo primero que pensaste cuando me viste?</label>
+                <textarea id="pregunta1" rows="3" placeholder="Escribe aquí..."></textarea>
+            </div>
+            <div class="pregunta-item">
+                <label>✦ ¿Cuál es tu recuerdo favorito conmigo?</label>
+                <textarea id="pregunta2" rows="3" placeholder="Escribe aquí..."></textarea>
+            </div>
+            <div class="pregunta-item">
+                <label>✦ ¿Qué canción te recuerda a mí?</label>
+                <textarea id="pregunta3" rows="2" placeholder="Escribe aquí..."></textarea>
+            </div>
+            <div class="pregunta-item">
+                <label>✦ ¿A dónde te gustaría viajar conmigo?</label>
+                <textarea id="pregunta4" rows="2" placeholder="Escribe aquí..."></textarea>
+            </div>
+            <div class="pregunta-item">
+                <label>✦ ¿Qué es algo que aún no sabes de mí?</label>
+                <textarea id="pregunta5" rows="3" placeholder="Escribe aquí..."></textarea>
+            </div>
+            <div class="pregunta-item">
+                <label>✦ ¿Qué es algo que siempre has querido hacer pero nunca te has atrevido?</label>
+                <textarea id="pregunta6" rows="3" placeholder="Escribe aquí..."></textarea>
+            </div>
+            <div class="pregunta-item">
+                <label>✦ ¿Cuál es tu recuerdo favorito de tu infancia?</label>
+                <textarea id="pregunta7" rows="3" placeholder="Escribe aquí..."></textarea>
+            </div>
+            <div class="pregunta-item">
+                <label>✦ ¿Qué te hace sonreír sin importar lo que pase?</label>
+                <textarea id="pregunta8" rows="2" placeholder="Escribe aquí..."></textarea>
             </div>
         </div>
 
-        <!-- SECCIÓN DE PELÍCULAS INTERACTIVA -->
+        <!-- PELÍCULAS INTERACTIVAS -->
         <div class="seccion">
             <h2>Películas para Nuestras Noches</h2>
-            <p class="nota-musical">Agrega las películas o series que quieras ver conmigo... (se guardarán en tu navegador)</p>
-            
-            <div class="peliculas-container">
-                <div id="lista-peliculas">
-                    <div class="mensaje-item">
-                        <p>🎬 "Cuestión de Tiempo" — Porque el tiempo contigo es mi favorito.</p>
-                        <p>🎬 "Antes de Amanecer" — Para caminar y hablar sin parar.</p>
-                        <p>🎬 "La La Land" — Para cantar y soñar despiertos.</p>
-                        <p>🎬 "Up" — Para recordar que el amor es la aventura más grande.</p>
-                        <p>🎬 "El Diario de una Pasión" — Para llorar juntos y reírnos de ello.</p>
-                    </div>
-                </div>
-                
-                <div class="agregar-pelicula">
-                    <input type="text" id="nueva-pelicula" placeholder="Escribe una película o serie..." />
-                    <button onclick="agregarPelicula()">Agregar ➕</button>
+            <p class="nota-musical">Agrega las películas o series que quieras ver conmigo...</p>
+            <div id="lista-peliculas">
+                <div class="mensaje-item">
+                    <p>🎬 "Cuestión de Tiempo" — Porque el tiempo contigo es mi favorito.</p>
+                    <p>🎬 "Antes de Amanecer" — Para caminar y hablar sin parar.</p>
+                    <p>🎬 "La La Land" — Para cantar y soñar despiertos.</p>
+                    <p>🎬 "Up" — Para recordar que el amor es la aventura más grande.</p>
                 </div>
             </div>
+            <div class="agregar-pelicula">
+                <input type="text" id="nueva-pelicula" placeholder="Escribe una película o serie..." />
+                <button onclick="agregarPelicula()">Agregar ➕</button>
+            </div>
         </div>
+
+        <!-- LUGARES PARA VISITAR -->
+        <div class="seccion">
+            <h2>Lugares que Mi Corazón Quiere Recorrer Contigo</h2>
+            <p class="nota-musical">El destino no importa si vamos de la mano...</p>
+            <div class="mensaje-item">
+                <p>🌅 Ver el atardecer en una playa sin nombre</p>
+                <p>☕ Un café en una calle escondida de París</p>
+                <p>🌌 Contar estrellas en el desierto</p>
+                <p>🎵 Bailar bajo la lluvia en cualquier ciudad</p>
+                <p>🚗 Perdernos en una carretera sin GPS</p>
+                <p>🏔️ Ver la nieve por primera vez juntos</p>
+                <p>🎡 Un parque de diversiones para ser niños otra vez</p>
+                <p>📚 Una librería antigua donde el tiempo se detenga</p>
+            </div>
+        </div>
+
         <!-- BOTÓN SECRETO -->
-        <div class="seccion" style="text-align: center; margin-top: 60px;">
-            <button onclick="mostrarSecreto()" 
-                    style="background-color: #d4af37; 
-                           color: #1a1a1a; 
-                           border: none; 
-                           padding: 18px 35px; 
-                           font-family: 'Cormorant Garamond', serif; 
-                           font-size: 1.4em; 
-                           border-radius: 50px; 
-                           cursor: pointer;
-                           font-weight: bold;
-                           box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-                           transition: all 0.3s ease;"
-                    onmouseover="this.style.transform='scale(1.05)'"
-                    onmouseout="this.style.transform='scale(1)'">
+        <div class="seccion" style="text-align: center; margin-top: 40px;">
+            <button onclick="mostrarSecreto()" class="boton-secreto">
                 💛 Tócame si quieres saber un secreto
             </button>
         </div>
@@ -272,37 +170,30 @@
         // FUNCIONES INTERACTIVAS
         // ==========================================
 
-        // --- BOTÓN SECRETO ---
         function mostrarSecreto() {
             alert("Seguramente estás hermosa el día de hoy... y cada día mucho más. ❤️✨");
         }
 
-        // --- MENSAJE SEGÚN LA HORA ---
         function cargarMensajePorHora() {
-            const ahora = new Date();
-            const hora = ahora.getHours();
-            
+            const hora = new Date().getHours();
             let saludo = '';
             let subSaludo = '';
             
             if (hora >= 5 && hora < 12) {
                 saludo = 'Buenos días, hermosa ☀️';
-                subSaludo = 'Si estás viendo esto es porque amanecí pensando en ti. Que tu día sea tan brillante como tu sonrisa.';
-            } 
-            else if (hora >= 12 && hora < 19) {
+                subSaludo = 'Si estás viendo esto es porque amanecí pensando en ti.';
+            } else if (hora >= 12 && hora < 19) {
                 saludo = 'Buenas tardes, mi pensamiento favorito 🌤️';
-                subSaludo = 'El sol brilla hoy, pero no tanto como tú. Espero que tu tarde sea tan hermosa como la paz que me das.';
-            } 
-            else {
+                subSaludo = 'El sol brilla hoy, pero no tanto como tú.';
+            } else {
                 saludo = 'Buenas noches, mi último y primer pensamiento 🌙';
-                subSaludo = 'Cierra los ojos y sueña conmigo. Que las estrellas te cuenten todo lo que pienso de ti en la distancia.';
+                subSaludo = 'Cierra los ojos y sueña conmigo.';
             }
             
             document.getElementById('saludo-hora').innerHTML = saludo;
             document.getElementById('sub-saludo-hora').innerHTML = subSaludo;
         }
 
-        // --- SECCIÓN DE PELÍCULAS ---
         function agregarPelicula() {
             const input = document.getElementById('nueva-pelicula');
             const texto = input.value.trim();
@@ -316,7 +207,7 @@
             const nuevoElemento = document.createElement('div');
             nuevoElemento.className = 'mensaje-item';
             nuevoElemento.style.margin = '10px 0';
-            nuevoElemento.innerHTML = `<p>🎬 "${texto}" — Agregada por ti ❤️</p>`;
+            nuevoElemento.innerHTML = '<p>🎬 "' + texto + '" — Agregada por ti ❤️</p>';
             
             listaPeliculas.appendChild(nuevoElemento);
             
@@ -331,20 +222,19 @@
             const peliculasGuardadas = JSON.parse(localStorage.getItem('peliculas') || '[]');
             const listaPeliculas = document.getElementById('lista-peliculas');
             
-            peliculasGuardadas.forEach(pelicula => {
+            peliculasGuardadas.forEach(function(pelicula) {
                 const nuevoElemento = document.createElement('div');
                 nuevoElemento.className = 'mensaje-item';
                 nuevoElemento.style.margin = '10px 0';
-                nuevoElemento.innerHTML = `<p>🎬 "${pelicula}" — Agregada por ti ❤️</p>`;
+                nuevoElemento.innerHTML = '<p>🎬 "' + pelicula + '" — Agregada por ti ❤️</p>';
                 listaPeliculas.appendChild(nuevoElemento);
             });
         }
 
-        // --- SECCIÓN DE PREGUNTAS (Guardar respuestas) ---
         function guardarRespuestas() {
             const preguntas = ['pregunta1', 'pregunta2', 'pregunta3', 'pregunta4', 'pregunta5', 'pregunta6', 'pregunta7', 'pregunta8'];
             
-            preguntas.forEach(id => {
+            preguntas.forEach(function(id) {
                 const elemento = document.getElementById(id);
                 const valorGuardado = localStorage.getItem(id);
                 
@@ -358,12 +248,10 @@
             });
         }
 
-        // --- CARGAR TODO AL INICIAR ---
-        window.addEventListener('load', function() {
-            cargarMensajePorHora();
-            cargarPeliculasGuardadas();
-            guardarRespuestas();
-        });
+        // Cargar todo al iniciar
+        cargarMensajePorHora();
+        cargarPeliculasGuardadas();
+        guardarRespuestas();
     </script>
 </body>
 </html>

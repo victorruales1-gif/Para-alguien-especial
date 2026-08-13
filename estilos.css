@@ -159,3 +159,127 @@ footer {
         padding: 15px;
     }
 }
+
+/* ==========================================
+   ESTILOS PARA LAS SECCIONES INTERACTIVAS
+   ========================================== */
+
+/* Estilo para las preguntas */
+.preguntas-container {
+    margin-top: 20px;
+}
+.pregunta-item {
+    background-color: #222;
+    padding: 20px;
+    margin: 15px 0;
+    border-left: 3px solid #d4af37;
+    text-align: left;
+    border-radius: 5px;
+}
+.pregunta-item label {
+    font-family: 'Cormorant Garamond', serif;
+    color: #e0d8cc;
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 10px;
+}
+.pregunta-item textarea {
+    width: 100%;
+    background-color: #1a1a1a;
+    color: #e0d8cc;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    resize: vertical;
+    min-height: 50px;
+    transition: border-color 0.3s ease;
+}
+.pregunta-item textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+.pregunta-item textarea::placeholder {
+    color: #666;
+    font-style: italic;
+}
+
+/* Estilo para las películas */
+.peliculas-container {
+    margin-top: 20px;
+}
+#lista-peliculas .mensaje-item {
+    margin: 10px 0;
+}
+.agregar-pelicula {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+.agregar-pelicula input {
+    flex: 1;
+    background-color: #1a1a1a;
+    color: #e0d8cc;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 12px 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    transition: border-color 0.3s ease;
+}
+.agregar-pelicula input:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+.agregar-pelicula input::placeholder {
+    color: #666;
+    font-style: italic;
+}
+.agregar-pelicula button {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.agregar-pelicula button:hover {
+    background-color: #e0c050;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+.agregar-pelicula button:active {
+    transform: translateY(0);
+}
+
+/* Estilo del botón secreto */
+.boton-secreto {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    border: none;
+    padding: 18px 35px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4em;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+.boton-secreto:hover {
+    background-color: #e0c050;
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+}
+.boton-secreto:active {
+    transform: scale(0.98);
+}

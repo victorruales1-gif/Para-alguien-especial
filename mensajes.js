@@ -8,15 +8,15 @@ const fotos = [
 
 const mensajes = [
     {
-        fecha: "Mensaje 1",
+        fecha: "🌹",
         texto: "Te elijo incluso sabiendo que podría no hacerlo.\nTe elijo sin certezas, sin promesas eternas, pero con la convicción de quien ha probado la soledad y aun así decide compartir su calma.\n\nTe elijo en lo simple, en las mañanas sin filtro, en los días donde amar se siente más como esfuerzo que como impulso.\n\nTe elijo porque contigo la vida no es perfecta, pero es verdad; porque no necesito un destino que nos una si tengo el coraje de elegirte aquí y ahora, en lo real, en lo humano, en lo nuestro.\n\nY si amar es una decisión, entonces te sigo eligiendo aunque el mundo cambie de rumbo."
     },
     {
-        fecha: "Mensaje 2",
+        fecha: "💘",
         texto: "Me encantas más cada día.\n\nPensé que el amor alcanzaba un límite, pero contigo pasa algo extraño: mientras más comparto contigo, más cosas encuentro para admirar.\n\nTu manera de pensar, de hablar, de preocuparte por quienes amas... todo en ti termina acercándome más.\n\nY lo más peligroso es que ya no solo me gustas por lo que haces, sino por la tranquilidad inmensa que siento cada vez que apareces en mi vida."
     },
     {
-        fecha: "Mensaje 3",
+        fecha: "🤍",
         texto: "Hace no mucho ni siquiera nos conocíamos.\nÉramos simplemente dos almas caminando sin vernos.\n\nY entonces, un día, sin previo aviso, nos encontramos en el mismo camino.\n\nA veces dicen que ciertos encuentros te cambian la vida; este es uno de ellos.\n\nEs extraño, lo sé. Cuanto más te conozco, más olvido cómo era mi vida sin ti.\n\nMe haces una mejor persona y por eso te estoy agradecido.\n\nPorque si amar es un pecado, que el mundo me juzgue y me pierda por toda la eternidad."
     }
 

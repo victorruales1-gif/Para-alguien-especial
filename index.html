@@ -22,7 +22,13 @@
             <p id="contador">❤️ Calculando latidos...</p>
             <p class="poesia-contador">El 06 de Mayo de 2026 mi corazón aprendió a latir por dos.</p>
         </div>
-
+<!-- SECCIÓN DE MENSAJE SEGÚN LA HORA -->
+<div class="seccion" style="margin-top: 20px;">
+    <div class="mensaje-hora" id="mensaje-hora" style="text-align: center; padding: 20px; margin: 20px 0;">
+        <p id="saludo-hora" style="font-size: 1.4em; font-family: 'Cormorant Garamond', serif; color: #C9A227; font-style: italic;"></p>
+        <p id="sub-saludo-hora" style="font-size: 1.1em; color: #8A7E72; margin-top: 10px;"></p>
+    </div>
+</div>
         <!-- SECCIÓN DE LA PLAYLIST -->
         <div class="seccion">
             <h2>Canciones que siento por ti</h2>
@@ -245,9 +251,41 @@
         }
 
         // --- CARGAR TODO AL INICIAR ---
-        window.addEventListener('load', function() {
-            cargarPeliculasGuardadas();
-            guardarRespuestas();
+       window.addEventListener('load', function() {
+    cargarPeliculasGuardadas();
+    guardarRespuestas();
+    cargarMensajePorHora();
+});
+
+// --- FUNCIÓN DEL MENSAJE SEGÚN LA HORA ---
+function cargarMensajePorHora() {
+    const ahora = new Date();
+    const hora = ahora.getHours();
+    const minutos = ahora.getMinutes();
+    
+    let saludo = '';
+    let subSaludo = '';
+    
+    // Mensaje de buenos días (5:00 AM - 11:59 AM)
+    if (hora >= 5 && hora < 12) {
+        saludo = 'Buenos días, hermosa ☀️';
+        subSaludo = 'Si estás viendo esto es porque amanecí pensando en ti. Que tu día sea tan brillante como tu sonrisa.';
+    }
+    // Mensaje de buenas tardes (12:00 PM - 6:59 PM)
+    else if (hora >= 12 && hora < 19) {
+        saludo = 'Buenas tardes, mi pensamiento favorito 🌤️';
+        subSaludo = 'El sol brilla hoy, pero no tanto como tú. Espero que tu tarde sea tan hermosa como la paz que me das.';
+    }
+    // Mensaje de buenas noches (7:00 PM - 4:59 AM)
+    else {
+        saludo = 'Buenas noches, mi último y primer pensamiento 🌙';
+        subSaludo = 'Cierra los ojos y sueña conmigo. Que las estrellas te cuenten todo lo que pienso de ti en la distancia.';
+    }
+    
+    // Mostrar los mensajes en la página
+    document.getElementById('saludo-hora').innerHTML = saludo;
+    document.getElementById('sub-saludo-hora').innerHTML = subSaludo;
+}
         });
     </script>
 </body>

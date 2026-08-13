@@ -9,6 +9,10 @@ body {
     position: relative;
     overflow-x: hidden;
 }
+
+/* ==========================================
+   FONDO ANIMADO CON PARTÍCULAS DORADAS
+   ========================================== */
 body::before {
     content: '';
     position: fixed;

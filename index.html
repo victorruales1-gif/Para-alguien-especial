@@ -110,6 +110,55 @@
             <p id="contador">❤️ Calculando latidos...</p>
             <p class="poesia-contador">El 11 de Mayo de 2026 mi corazón aprendió a latir por dos.</p>
         </div>
+     <!-- CUENTA REGRESIVA: UN PASO HACIA EL FUTURO -->
+<div class="contador-caja" style="margin-top: 20px; border: 1px solid #E85D75; background-color: rgba(255, 255, 255, 0.9);">
+    <h2 style="font-family: 'Cormorant Garamond', serif; color: #E85D75; font-size: 1.6em; margin-bottom: 10px;">
+        ⏳ Un Paso Hacia el Futuro
+    </h2>
+    
+    <p id="cuenta-regresiva-futuro" style="font-size: 2em; color: #E85D75; font-weight: bold; letter-spacing: 2px; margin: 10px 0;">
+        Calculando...
+    </p>
+    
+    <p id="mensaje-cuenta-regresiva" class="poesia-contador" style="color: #8A7E72; font-style: italic;">
+        Treinta días para que el "nosotros" se escriba con más fuerza...
+    </p>
+</div>
+
+<script>
+    function cargarCuentaRegresivaFuturo() {
+        // Verificar si ya existe una fecha guardada
+        let fechaInicio = localStorage.getItem('fecha-inicio-paso-futuro');
+        
+        if (!fechaInicio) {
+            // Si no existe, guardar la fecha actual (cuando ella abra la página)
+            fechaInicio = new Date().getTime();
+            localStorage.setItem('fecha-inicio-paso-futuro', fechaInicio);
+        }
+        
+        // Calcular la fecha de fin (30 días después)
+        const fechaFin = parseInt(fechaInicio) + (30 * 24 * 60 * 60 * 1000);
+        const ahora = new Date().getTime();
+        const diferencia = fechaFin - ahora;
+        
+        if (diferencia <= 0) {
+            document.getElementById('cuenta-regresiva-futuro').innerHTML = "🎉 ¡Llegó el momento!";
+            document.getElementById('mensaje-cuenta-regresiva').innerHTML = "El 'nosotros' ya se escribió con todas sus letras. ¿Lo hacemos eterno?";
+            return;
+        }
+        
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+        
+        document.getElementById('cuenta-regresiva-futuro').innerHTML = 
+            dias + " días, " + horas + " hrs, " + minutos + " min, " + segundos + " seg";
+    }
+    
+    cargarCuentaRegresivaFuturo();
+    setInterval(cargarCuentaRegresivaFuturo, 1000);
+</script>
 
         <!-- MENSAJE SEGÚN LA HORA (Siempre visible) -->
         <div class="mensaje-hora" style="text-align: center; padding: 15px; margin: 15px 0;">

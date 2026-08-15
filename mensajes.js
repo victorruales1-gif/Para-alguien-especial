@@ -3,7 +3,7 @@
 const fechaEspecial = new Date('2026-05-11').getTime();
 
 const fotos = [
-    "https://imgur.com/O64ZhX0.jpg",
+    "https://i.imgur.com/h1lB69E.jpg",
 ];
 
 const mensajes = [

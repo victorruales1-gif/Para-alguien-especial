@@ -148,27 +148,25 @@
         <p>📝 Algún día leeremos esto y sonreiremos porque ya lo vivimos.</p>
     </div>
 </div>
-  <!-- BOTÓN SECRETO -->
-<div class="seccion" style="text-align: center; margin-top: 60px;">
-    <button onclick="mostrarSecreto()" 
-            style="background-color: #d4af37; 
-                   color: #1a1a1a; 
-                   border: none; 
-                   padding: 18px 35px; 
-                   font-family: 'Cormorant Garamond', serif; 
-                   font-size: 1.4em; 
-                   border-radius: 50px; 
-                   cursor: pointer;
-                   font-weight: bold;
-                   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-                   transition: all 0.3s ease;"
-            onmouseover="this.style.transform='scale(1.05)'"
-            onmouseout="this.style.transform='scale(1)'">
-        💛 Tócame si quieres saber un secreto
-    </button>
-</div>
-
-</script>
+   <!-- BOTÓN SECRETO -->
+        <div class="seccion" style="text-align: center; margin-top: 60px;">
+            <button onclick="mostrarSecreto()" 
+                    style="background-color: #d4af37; 
+                           color: #1a1a1a; 
+                           border: none; 
+                           padding: 18px 35px; 
+                           font-family: 'Cormorant Garamond', serif; 
+                           font-size: 1.4em; 
+                           border-radius: 50px; 
+                           cursor: pointer;
+                           font-weight: bold;
+                           box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+                           transition: all 0.3s ease;"
+                    onmouseover="this.style.transform='scale(1.05)'"
+                    onmouseout="this.style.transform='scale(1)'">
+                💛 Tócame si quieres saber un secreto
+            </button>
+        </div>
         <!-- BOTÓN DE SORPRESA TIKTOK -->
 <div class="seccion" style="text-align: center; margin-top: 40px;">
     <p style="font-family: 'Cormorant Garamond', serif; 
@@ -267,16 +265,21 @@
     <script src="mensajes.js"></script>
     
     <script>
-        // ==========================================
         // FUNCIONES INTERACTIVAS
-        // ==========================================
-
-        <script>
-    function mostrarSecreto() {
-        alert("Mirarte es soplar las velas teniendo el deseo en frente ❤️");
-    }
-</script>
-
+        
+        function mostrarSecreto() {
+            alert("Mirarte es soplar las velas teniendo el deseo en frente ❤️");
+        }
+        
+        function mostrarTikTok() {
+            const contenedor = document.getElementById('contenedor-tiktok');
+            if (contenedor.style.display === 'none') {
+                contenedor.style.display = 'block';
+            } else {
+                contenedor.style.display = 'none';
+            }
+        }
+        
         function cargarMensajePorHora() {
             const hora = new Date().getHours();
             let saludo = '';
@@ -296,7 +299,7 @@
             document.getElementById('saludo-hora').innerHTML = saludo;
             document.getElementById('sub-saludo-hora').innerHTML = subSaludo;
         }
-
+        
         function agregarPelicula() {
             const input = document.getElementById('nueva-pelicula');
             const texto = input.value.trim();
@@ -320,7 +323,7 @@
             
             input.value = '';
         }
-
+        
         function cargarPeliculasGuardadas() {
             const peliculasGuardadas = JSON.parse(localStorage.getItem('peliculas') || '[]');
             const listaPeliculas = document.getElementById('lista-peliculas');
@@ -333,7 +336,7 @@
                 listaPeliculas.appendChild(nuevoElemento);
             });
         }
-
+        
         function guardarRespuestas() {
             const preguntas = ['pregunta1', 'pregunta2', 'pregunta3', 'pregunta4', 'pregunta5', 'pregunta6', 'pregunta7', 'pregunta8'];
             
@@ -350,76 +353,11 @@
                 });
             });
         }
-
+        
         // Cargar todo al iniciar
         cargarMensajePorHora();
         cargarPeliculasGuardadas();
         guardarRespuestas();
     </script>
-    <!-- MODAL DE BIENVENIDA ELEGANTE -->
-<div id="modal-bienvenida" style="display: none; 
-                                   position: fixed; 
-                                   top: 0; 
-                                   left: 0; 
-                                   width: 100%; 
-                                   height: 100%; 
-                                   background-color: rgba(0, 0, 0, 0.6); 
-                                   z-index: 1000; 
-                                   justify-content: center; 
-                                   align-items: center;">
-    
-    <div style="background-color: #FFFFFF; 
-                border-radius: 15px; 
-                padding: 40px; 
-                max-width: 400px; 
-                text-align: center; 
-                border: 3px solid #D4AF37;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);">
-        
-        <p style="font-size: 3em; margin: 0 0 15px 0;">💛</p>
-        
-        <p style="font-family: 'Cormorant Garamond', serif; 
-                  font-size: 2em; 
-                  color: #C9A227; 
-                  font-style: italic; 
-                  margin: 0 0 15px 0;">
-            Tengo algo para ti...
-        </p>
-        
-        <p style="font-family: 'Montserrat', sans-serif; 
-                  font-size: 1em; 
-                  color: #8A7E72; 
-                  margin: 0 0 25px 0;">
-            He actualizado esta página con más amor. Sigue bajando para descubrirlo.
-        </p>
-        
-        <button onclick="cerrarModal()" 
-                style="background-color: #C9A227; 
-                       color: #FFFFFF; 
-                       border: none; 
-                       padding: 12px 30px; 
-                       font-family: 'Cormorant Garamond', serif; 
-                       font-size: 1.2em; 
-                       border-radius: 50px; 
-                       cursor: pointer; 
-                       font-weight: bold;">
-            Descubrir ✨
-        </button>
-    </div>
-</div>
-
-<script>
-    // Mostrar el modal después de 2 segundos
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            document.getElementById('modal-bienvenida').style.display = 'flex';
-        }, 2000);
-    });
-    
-    // Cerrar el modal
-    function cerrarModal() {
-        document.getElementById('modal-bienvenida').style.display = 'none';
-    }
-</script>
 </body>
 </html>

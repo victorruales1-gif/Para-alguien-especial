@@ -104,262 +104,308 @@
             <p class="subtitulo">Aún sin título oficial, pero con sentimiento real.</p>
         </header>
 
-        <!-- CONTADOR -->
+        <!-- CONTADOR (Siempre visible) -->
         <div class="contador-caja">
             <h2 id="titulo-contador">Desde que te conozco, mi corazón ha latido por ti...</h2>
             <p id="contador">❤️ Calculando latidos...</p>
-            <p class="poesia-contador">El 06 de Mayo de 2026 mi corazón aprendió a latir por dos.</p>
+            <p class="poesia-contador">El 11 de Mayo de 2026 mi corazón aprendió a latir por dos.</p>
         </div>
 
-        <!-- MENSAJE SEGÚN LA HORA -->
-        <div class="mensaje-hora">
-            <p id="saludo-hora"></p>
-            <p id="sub-saludo-hora"></p>
+        <!-- MENSAJE SEGÚN LA HORA (Siempre visible) -->
+        <div class="mensaje-hora" style="text-align: center; padding: 15px; margin: 15px 0;">
+            <p id="saludo-hora" style="font-size: 1.3em; font-family: 'Cormorant Garamond', serif; color: #C9A227; font-style: italic; margin-bottom: 5px;"></p>
+            <p id="sub-saludo-hora" style="font-size: 1em; color: #8A7E72;"></p>
         </div>
 
-        <!-- PLAYLIST -->
-        <div class="seccion">
-            <h2>Canciones que siento por ti</h2>
-            <p class="nota-musical">▶ Toca play y cierra los ojos...</p>
-            <iframe style="border-radius:12px" 
-            src="https://open.spotify.com/embed/playlist/0cJ3wxP8aD23ZDpYJV9IVF?utm_source=generator" 
-            width="100%" height="380" 
-            frameBorder="0" 
-            allowfullscreen="" 
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-            loading="lazy">
-            </iframe>
+        <!-- MENÚ DE NAVEGACIÓN -->
+        <div class="menu-navegacion">
+            <button class="boton-menu activo" onclick="mostrarSeccion('inicio')">🏠 Inicio</button>
+            <button class="boton-menu" onclick="mostrarSeccion('cartas')">💌 Cartas</button>
+            <button class="boton-menu" onclick="mostrarSeccion('preguntas')">❓ Preguntas</button>
+            <button class="boton-menu" onclick="mostrarSeccion('peliculas')">🎬 Películas</button>
+            <button class="boton-menu" onclick="mostrarSeccion('lugares')">🗺️ Lugares</button>
+            <button class="boton-menu" onclick="mostrarSeccion('recuerdos')">🌟 Recuerdos</button>
+            <button class="boton-menu" onclick="mostrarSeccion('promesas')">💛 Promesas</button>
+            <button class="boton-menu" onclick="mostrarSeccion('sorpresas')">🎁 Sorpresas</button>
         </div>
 
-        <!-- GALERÍA -->
-        <div class="seccion">
-            <h2>Cosas que Me Recuerdan a Ti</h2>
-            <div id="galeria"></div>
-        </div>
-
-        <!-- 15 RAZONES -->
-        <div class="seccion">
-            <h2>Pequeñas Razones, Grandes Sentimientos</h2>
-            <p class="nota-musical">Un número nunca alcanzará para contarlas todas...</p>
-            <div class="mensaje-item">
-                <p>1. Cuando veo un atardecer con colores que no sé describir</p>
-                <p>2. Cuando escucho una canción sin buscarla y termina hablando de ti</p>
-                <p>3. Cuando alguien dice tu nombre por casualidad y mi corazón se detiene un segundo</p>
-                <p>4. Cuando el café me recuerda lo amargo que es no verte</p>
-                <p>5. Cuando cierro los ojos y aparece tu sonrisa sin pedir permiso</p>
-                <p>6. Cuando algo me hace reír y quiero contártelo antes que a nadie más</p>
-                <p>7. Cuando el silencio me grita tu ausencia</p>
-                <p>8. Cuando camino por la calle y veo algo que sé que te gustaría</p>
-                <p>9. Cuando me preguntan por mi día y solo quiero hablar de ti</p>
-                <p>10. Cuando el olor de la lluvia me transporta a un recuerdo que aún no vivimos</p>
-                <p>11. Cuando veo parejas tomadas de la mano y pienso en cómo se sentiría contigo</p>
-                <p>12. Cuando el reloj marca una hora cualquiera y me pregunto qué estarás haciendo</p>
-                <p>13. Cuando una película, un libro o una frase me recuerda que el amor existe porque existes tú</p>
-                <p>14. Cuando me despierto y mi primer pensamiento, sin querer, eres tú</p>
-                <p>15. Cuando respiro... porque incluso en lo más simple, estás presente</p>
+        <!-- ==========================================
+             SECCIÓN: INICIO
+             ========================================== -->
+        <div id="seccion-inicio" class="seccion-pagina activa">
+            <div class="seccion">
+                <h2>Lo que No Puedo Decirte, lo Canto</h2>
+                <p class="nota-musical">▶ Toca play y cierra los ojos...</p>
+                <iframe style="border-radius:12px" 
+                src="https://open.spotify.com/embed/playlist/0cJ3wxP8aD23ZDpYJV9IVF?utm_source=generator" 
+                width="100%" height="380" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+                </iframe>
             </div>
-        </div>
-
-        <!-- POEMAS -->
-        <div class="seccion">
-            <h2>Cartas para Ti</h2>
-            <div id="lista-mensajes"></div>
-        </div>
-
-        <!-- PREGUNTAS INTERACTIVAS -->
-        <div class="seccion">
-            <h2>Preguntas que Me Hago Contigo</h2>
-            <p class="nota-musical">Si quieres, escribe aquí tus respuestas... (se guardarán en tu navegador)</p>
             
-            <div class="pregunta-item">
-                <label>✦ ¿Qué es lo primero que pensaste cuando me viste?</label>
-                <textarea id="pregunta1" rows="3" placeholder="Escribe aquí..."></textarea>
+            <div class="seccion">
+                <h2>Cosas que Me Recuerdan a Ti</h2>
+                <div id="galeria"></div>
             </div>
-            <div class="pregunta-item">
-                <label>✦ ¿Cuál es tu recuerdo favorito conmigo?</label>
-                <textarea id="pregunta2" rows="3" placeholder="Escribe aquí..."></textarea>
-            </div>
-            <div class="pregunta-item">
-                <label>✦ ¿Qué canción te recuerda a mí?</label>
-                <textarea id="pregunta3" rows="2" placeholder="Escribe aquí..."></textarea>
-            </div>
-            <div class="pregunta-item">
-                <label>✦ ¿A dónde te gustaría viajar conmigo?</label>
-                <textarea id="pregunta4" rows="2" placeholder="Escribe aquí..."></textarea>
-            </div>
-            <div class="pregunta-item">
-                <label>✦ ¿Qué es algo que aún no sabes de mí?</label>
-                <textarea id="pregunta5" rows="3" placeholder="Escribe aquí..."></textarea>
-            </div>
-            <div class="pregunta-item">
-                <label>✦ ¿Qué es algo que siempre has querido hacer pero nunca te has atrevido?</label>
-                <textarea id="pregunta6" rows="3" placeholder="Escribe aquí..."></textarea>
-            </div>
-            <div class="pregunta-item">
-                <label>✦ ¿Cuál es tu recuerdo favorito de tu infancia?</label>
-                <textarea id="pregunta7" rows="3" placeholder="Escribe aquí..."></textarea>
-            </div>
-            <div class="pregunta-item">
-                <label>✦ ¿Qué te hace sonreír sin importar lo que pase?</label>
-                <textarea id="pregunta8" rows="2" placeholder="Escribe aquí..."></textarea>
-            </div>
-        </div>
-
-        <!-- PELÍCULAS INTERACTIVAS -->
-        <div class="seccion">
-            <h2>Películas para Nuestras Noches</h2>
-            <p class="nota-musical">Agrega las películas o series que quieras ver conmigo...</p>
-            <div id="lista-peliculas">
+            
+            <div class="seccion">
+                <h2>Pequeñas Razones, Grandes Sentimientos</h2>
+                <p class="nota-musical">Un número nunca alcanzará para contarlas todas...</p>
                 <div class="mensaje-item">
-                    <p>🎬 "Cuestión de Tiempo" — Porque el tiempo contigo es mi favorito.</p>
-                    <p>🎬 "Tarzan" — Porque es mi animada favorita.</p>
-                    <p>🎬 "Maratón de Marvel/DC" — Con esto entenderías la magnitud de mi amor jaja .</p>
-                    <p>🎬 "Up" — Para recordar que el amor es la aventura más grande.</p>
+                    <p>1. Cuando veo un atardecer con colores que no sé describir</p>
+                    <p>2. Cuando escucho una canción sin buscarla y termina hablando de ti</p>
+                    <p>3. Cuando alguien dice tu nombre por casualidad y mi corazón se detiene un segundo</p>
+                    <p>4. Cuando el café me recuerda lo amargo que es no verte</p>
+                    <p>5. Cuando cierro los ojos y aparece tu sonrisa sin pedir permiso</p>
+                    <p>6. Cuando algo me hace reír y quiero contártelo antes que a nadie más</p>
+                    <p>7. Cuando el silencio me grita tu ausencia</p>
+                    <p>8. Cuando camino por la calle y veo algo que sé que te gustaría</p>
+                    <p>9. Cuando me preguntan por mi día y solo quiero hablar de ti</p>
+                    <p>10. Cuando el olor de la lluvia me transporta a un recuerdo que aún no vivimos</p>
+                    <p>11. Cuando veo parejas tomadas de la mano y pienso en cómo se sentiría contigo</p>
+                    <p>12. Cuando el reloj marca una hora cualquiera y me pregunto qué estarás haciendo</p>
+                    <p>13. Cuando una película, un libro o una frase me recuerda que el amor existe porque existes tú</p>
+                    <p>14. Cuando me despierto y mi primer pensamiento, sin querer, eres tú</p>
+                    <p>15. Cuando respiro... porque incluso en lo más simple, estás presente</p>
                 </div>
             </div>
-            <div class="agregar-pelicula">
-                <input type="text" id="nueva-pelicula" placeholder="Escribe una película o serie..." />
-                <button onclick="agregarPelicula()">Agregar ➕</button>
+        </div>
+
+        <!-- ==========================================
+             SECCIÓN: CARTAS
+             ========================================== -->
+        <div id="seccion-cartas" class="seccion-pagina">
+            <div class="seccion">
+                <h2>Cartas para Ti</h2>
+                <p class="nota-musical">Lo que te escribo cuando las palabras fluyen...</p>
+                <div id="lista-mensajes"></div>
             </div>
         </div>
-        <div class="seccion">
-    <h2>Recuerdos que Aún No Hemos Vivido</h2>
-    <p class="nota-musical">Son promesas disfrazadas de sueños...</p>
-    <div class="mensaje-item">
-        <p>🌅 Algún día veremos el amanecer sin haber dormido, solo hablando.</p>
-        <p>☔ Algún día nos mojaremos bajo la lluvia sin importar el frío.</p>
-        <p>🎂 Algún día celebraremos un año más sin creer lo rápido que pasa.</p>
-        <p>📷 Algún día tendremos una foto juntos y diré: "así comenzó todo".</p>
-        <p>❤️ Algún día, el contador dirá más días de los que podemos contar.</p>
-        <p>🎵 Algún día bailaremos en la cocina sin música.</p>
-        <p>💍 Algún día miraremos atrás y diremos: "valió la pena esperar".</p>
-        <p>📝 Algún día leeremos esto y sonreiremos porque ya lo vivimos.</p>
-    </div>
-</div>
-        <!-- SECCIÓN DE LO QUE QUIERO PARA NOSOTROS -->
-<div class="seccion">
-    <h2>Lo que Quiero para Nosotros</h2>
-    <p class="nota-musical">No es lo que espero de ti, es lo que quiero construir contigo...</p>
-    <div class="mensaje-item">
-        <p>🌱 Quiero una relación donde crezcamos juntos, no donde uno espere al otro.</p>
-        <p>🏠 Quiero que seamos hogar el uno para el otro.</p>
-        <p>🛡️ Quiero protegernos de lo que nos haga daño, incluso de nosotros mismos.</p>
-        <p>💬 Quiero que siempre podamos hablar, incluso cuando sea incómodo.</p>
-        <p>🎯 Quiero metas compartidas y sueños entrelazados.</p>
-        <p>🌊 Quiero navegar juntos las tormentas, no solo los días soleados.</p>
-        <p>🚪 No me alejaré cuando las cosas se pongan difíciles; me quedaré y lucharé.</p>
-        <p>♾️ Quiero que lo nuestro no sea perfecto, pero sí inquebrantable.</p>
-    </div>
-</div>
-   <!-- BOTÓN SECRETO -->
-        <div class="seccion" style="text-align: center; margin-top: 60px;">
-            <button onclick="mostrarSecreto()" 
-                    style="background-color: #d4af37; 
-                           color: #1a1a1a; 
-                           border: none; 
-                           padding: 18px 35px; 
-                           font-family: 'Cormorant Garamond', serif; 
-                           font-size: 1.4em; 
-                           border-radius: 50px; 
-                           cursor: pointer;
-                           font-weight: bold;
-                           box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-                           transition: all 0.3s ease;"
-                    onmouseover="this.style.transform='scale(1.05)'"
-                    onmouseout="this.style.transform='scale(1)'">
-                💛 Tócame si quieres saber un secreto
-            </button>
+
+        <!-- ==========================================
+             SECCIÓN: PREGUNTAS
+             ========================================== -->
+        <div id="seccion-preguntas" class="seccion-pagina">
+            <div class="seccion">
+                <h2>Preguntas que Me Hago Contigo</h2>
+                <p class="nota-musical">Si quieres, escribe aquí tus respuestas...</p>
+                
+                <div class="pregunta-item">
+                    <label>✦ ¿Qué es lo primero que pensaste cuando me viste?</label>
+                    <textarea id="pregunta1" rows="3" placeholder="Escribe aquí..."></textarea>
+                </div>
+                <div class="pregunta-item">
+                    <label>✦ ¿Cuál es tu recuerdo favorito conmigo?</label>
+                    <textarea id="pregunta2" rows="3" placeholder="Escribe aquí..."></textarea>
+                </div>
+                <div class="pregunta-item">
+                    <label>✦ ¿Qué canción te recuerda a mí?</label>
+                    <textarea id="pregunta3" rows="2" placeholder="Escribe aquí..."></textarea>
+                </div>
+                <div class="pregunta-item">
+                    <label>✦ ¿A dónde te gustaría viajar conmigo?</label>
+                    <textarea id="pregunta4" rows="2" placeholder="Escribe aquí..."></textarea>
+                </div>
+                <div class="pregunta-item">
+                    <label>✦ ¿Qué es algo que aún no sabes de mí?</label>
+                    <textarea id="pregunta5" rows="3" placeholder="Escribe aquí..."></textarea>
+                </div>
+                <div class="pregunta-item">
+                    <label>✦ ¿Qué es algo que siempre has querido hacer pero nunca te has atrevido?</label>
+                    <textarea id="pregunta6" rows="3" placeholder="Escribe aquí..."></textarea>
+                </div>
+                <div class="pregunta-item">
+                    <label>✦ ¿Cuál es tu recuerdo favorito de tu infancia?</label>
+                    <textarea id="pregunta7" rows="3" placeholder="Escribe aquí..."></textarea>
+                </div>
+                <div class="pregunta-item">
+                    <label>✦ ¿Qué te hace sonreír sin importar lo que pase?</label>
+                    <textarea id="pregunta8" rows="2" placeholder="Escribe aquí..."></textarea>
+                </div>
+            </div>
         </div>
-        <!-- BOTÓN DE SORPRESA TIKTOK -->
-<div class="seccion" style="text-align: center; margin-top: 40px;">
-    <p style="font-family: 'Cormorant Garamond', serif; 
-              font-size: 1.5em; 
-              color: #C9A227; 
-              font-style: italic; 
-              margin-bottom: 20px;">
-        Tengo una sorpresa más para ti...
-    </p>
-    
-    <button onclick="mostrarTikTok()" 
-            style="background-color: #E85D75; 
-                   color: #FFFFFF; 
-                   border: none; 
-                   padding: 18px 35px; 
-                   font-family: 'Cormorant Garamond', serif; 
-                   font-size: 1.4em; 
-                   border-radius: 50px; 
-                   cursor: pointer;
-                   font-weight: bold;
-                   box-shadow: 0 4px 15px rgba(232, 93, 117, 0.4);
-                   transition: all 0.3s ease;"
-            onmouseover="this.style.transform='scale(1.05)'"
-            onmouseout="this.style.transform='scale(1)'">
-        🎁 Tócame si quieres ver algo especial
-    </button>
-    
-    <!-- Contenedor oculto para el TikTok -->
-    <div id="contenedor-tiktok" style="display: none; margin-top: 30px; max-width: 350px; margin-left: auto; margin-right: auto; border-radius: 15px; overflow: hidden; border: 3px solid #E85D75; box-shadow: 0 6px 25px rgba(232, 93, 117, 0.3);">
-        <blockquote class="tiktok-embed" 
-                    cite="https://www.tiktok.com/@adrytmy_/video/7649798158612008199" 
-                    data-video-id="7649798158612008199" 
-                    style="max-width: 100%; min-width: 100%; margin: 0; border: none;">
-            <section></section>
-        </blockquote>
-        <script async src="https://www.tiktok.com/embed.js"></script>
-    </div>
-    
-    <!-- Estilos para ocultar créditos del TikTok -->
-    <style>
-        .tiktok-embed section {
-            display: none !important;
-        }
-        .tiktok-embed a[title*="@"] {
-            display: none !important;
-        }
-        .tiktok-embed p {
-            display: none !important;
-        }
-    </style>
-</div>
 
-<script>
-    function mostrarTikTok() {
-        const contenedor = document.getElementById('contenedor-tiktok');
-        if (contenedor.style.display === 'none') {
-            contenedor.style.display = 'block';
-        } else {
-            contenedor.style.display = 'none';
-        }
-    }
-</script>
-<!-- CIERRE FINAL -->
-<div style="text-align: center; margin-top: 60px; padding: 30px 0;">
-    <p style="font-family: 'Great Vibes', 'Cormorant Garamond', cursive; 
-              font-size: 3.5em; 
-              font-style: italic; 
-              color: #D4AF37; 
-              margin: 0;
-              text-shadow: 0 2px 15px rgba(212, 175, 55, 0.4);
-              letter-spacing: 1px;">
-        Te quiero demasiado
-    </p>
-    <p style="font-size: 3em; 
-              margin: 15px 0 0 0;
-              animation: latir 1.5s ease-in-out infinite;
-              display: inline-block;
-              filter: drop-shadow(0 0 20px rgba(232, 93, 117, 0.5));">
-        ❤️
-    </p>
-</div>
+        <!-- ==========================================
+             SECCIÓN: PELÍCULAS
+             ========================================== -->
+        <div id="seccion-peliculas" class="seccion-pagina">
+            <div class="seccion">
+                <h2>Películas para Nuestras Noches</h2>
+                <p class="nota-musical">Agrega las películas o series que quieras ver conmigo...</p>
+                <div id="lista-peliculas">
+                    <div class="mensaje-item">
+                        <p>🎬 "Cuestión de Tiempo" — Porque el tiempo contigo es mi favorito.</p>
+                        <p>🎬 "Antes de Amanecer" — Para caminar y hablar sin parar.</p>
+                        <p>🎬 "La La Land" — Para cantar y soñar despiertos.</p>
+                        <p>🎬 "Up" — Para recordar que el amor es la aventura más grande.</p>
+                    </div>
+                </div>
+                <div class="agregar-pelicula" style="display: flex; gap: 10px; margin-top: 15px;">
+                    <input type="text" id="nueva-pelicula" placeholder="Escribe una película o serie..." style="flex: 1; padding: 10px; border: 1px solid #D4AF37; border-radius: 5px; background-color: #FDF8F0;" />
+                    <button onclick="agregarPelicula()" style="background-color: #C9A227; color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-family: 'Cormorant Garamond', serif; font-weight: bold;">Agregar ➕</button>
+                </div>
+            </div>
+        </div>
 
-<style>
-    @keyframes latir {
-        0%, 100% { transform: scale(1); }
-        25% { transform: scale(1.2); }
-        50% { transform: scale(1); }
-        75% { transform: scale(1.15); }
-    }
-</style>
+        <!-- ==========================================
+             SECCIÓN: LUGARES
+             ========================================== -->
+        <div id="seccion-lugares" class="seccion-pagina">
+            <div class="seccion">
+                <h2>Lugares que Mi Corazón Quiere Recorrer Contigo</h2>
+                <p class="nota-musical">El destino no importa si vamos de la mano...</p>
+                <div class="mensaje-item">
+                    <p>🌅 Ver el atardecer en una playa sin nombre</p>
+                    <p>☕ Un café en una calle escondida de París</p>
+                    <p>🌌 Contar estrellas en el desierto</p>
+                    <p>🎵 Bailar bajo la lluvia en cualquier ciudad</p>
+                    <p>🚗 Perdernos en una carretera sin GPS</p>
+                    <p>🏔️ Ver la nieve por primera vez juntos</p>
+                    <p>🎡 Un parque de diversiones para ser niños otra vez</p>
+                    <p>📚 Una librería antigua donde el tiempo se detenga</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             SECCIÓN: RECUERDOS
+             ========================================== -->
+        <div id="seccion-recuerdos" class="seccion-pagina">
+            <div class="seccion">
+                <h2>Recuerdos que Aún No Hemos Vivido</h2>
+                <p class="nota-musical">Son promesas disfrazadas de sueños...</p>
+                <div class="mensaje-item">
+                    <p>🌅 Algún día veremos el amanecer sin haber dormido, solo hablando.</p>
+                    <p>☔ Algún día nos mojaremos bajo la lluvia sin importar el frío.</p>
+                    <p>🎂 Algún día celebraremos un año más sin creer lo rápido que pasa.</p>
+                    <p>📷 Algún día tendremos una foto juntos y diré: "así comenzó todo".</p>
+                    <p>❤️ Algún día, el contador dirá más días de los que podemos contar.</p>
+                    <p>🎵 Algún día bailaremos en la cocina sin música, solo por el gusto de estar juntos.</p>
+                    <p>✈️ Algún día nos perderemos en una ciudad desconocida y la haremos nuestra.</p>
+                    <p>📝 Algún día leeremos esto y sonreiremos porque ya lo vivimos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             SECCIÓN: PROMESAS
+             ========================================== -->
+        <div id="seccion-promesas" class="seccion-pagina">
+            <div class="seccion">
+                <h2>Lo que Haré por Nosotros</h2>
+                <p class="nota-musical">Porque lo nuestro merece cuidado, esfuerzo y dedicación...</p>
+                <div class="mensaje-item">
+                         <p>🌱 Quiero una relación donde crezcamos juntos, no donde uno espere al otro.</p>
+                         <p>🏠 Quiero que seamos hogar el uno para el otro.</p>
+                         <p>🛡️ Quiero protegernos de lo que nos haga daño, incluso de nosotros mismos.</p>
+                         <p>💬 Quiero que siempre podamos hablar, incluso cuando sea incómodo.</p>
+                         <p>🎯 Quiero metas compartidas y sueños entrelazados.</p>
+                         <p>🌊 Quiero navegar juntos las tormentas, no solo los días soleados.</p>
+                         <p>🚪 No me alejaré cuando las cosas se pongan difíciles; me quedaré y lucharé.</p>
+                         <p>♾️ Quiero que lo nuestro no sea perfecto, pero sí inquebrantable.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             SECCIÓN: SORPRESAS
+             ========================================== -->
+        <div id="seccion-sorpresas" class="seccion-pagina">
+            <div class="seccion" style="text-align: center; margin-top: 40px;">
+                <button onclick="mostrarSecreto()" 
+                        style="background-color: #d4af37; 
+                               color: #1a1a1a; 
+                               border: none; 
+                               padding: 18px 35px; 
+                               font-family: 'Cormorant Garamond', serif; 
+                               font-size: 1.4em; 
+                               border-radius: 50px; 
+                               cursor: pointer;
+                               font-weight: bold;
+                               box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+                               transition: all 0.3s ease;"
+                        onmouseover="this.style.transform='scale(1.05)'"
+                        onmouseout="this.style.transform='scale(1)'">
+                    💛 Tócame si quieres saber un secreto
+                </button>
+            </div>
+            
+            <div class="seccion" style="text-align: center; margin-top: 40px;">
+                <p style="font-family: 'Cormorant Garamond', serif; 
+                          font-size: 1.5em; 
+                          color: #C9A227; 
+                          font-style: italic; 
+                          margin-bottom: 20px;">
+                    Tengo una sorpresa más para ti...
+                </p>
+                
+                <button onclick="mostrarTikTok()" 
+                        style="background-color: #E85D75; 
+                               color: #FFFFFF; 
+                               border: none; 
+                               padding: 18px 35px; 
+                               font-family: 'Cormorant Garamond', serif; 
+                               font-size: 1.4em; 
+                               border-radius: 50px; 
+                               cursor: pointer;
+                               font-weight: bold;
+                               box-shadow: 0 4px 15px rgba(232, 93, 117, 0.4);
+                               transition: all 0.3s ease;"
+                        onmouseover="this.style.transform='scale(1.05)'"
+                        onmouseout="this.style.transform='scale(1)'">
+                    🎁 Tócame si quieres ver algo especial
+                </button>
+                
+                <div id="contenedor-tiktok" style="display: none; margin-top: 30px; max-width: 350px; margin-left: auto; margin-right: auto; border-radius: 15px; overflow: hidden; border: 3px solid #E85D75; box-shadow: 0 6px 25px rgba(232, 93, 117, 0.3);">
+                    <blockquote class="tiktok-embed" 
+                                cite="https://www.tiktok.com/@adrytmy_/video/7649798158612008199" 
+                                data-video-id="7649798158612008199" 
+                                style="max-width: 100%; min-width: 100%; margin: 0; border: none;">
+                        <section></section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+                
+                <style>
+                    .tiktok-embed section { display: none !important; }
+                    .tiktok-embed a[title*="@"] { display: none !important; }
+                    .tiktok-embed p { display: none !important; }
+                </style>
+            </div>
+        </div>
+
+        <!-- CIERRE FINAL (Siempre visible) -->
+        <div style="text-align: center; margin-top: 60px; padding: 30px 0;">
+            <p style="font-family: 'Great Vibes', cursive; 
+                      font-size: 3em; 
+                      color: #D4AF37; 
+                      margin: 0;
+                      text-shadow: 0 2px 15px rgba(212, 175, 55, 0.4);
+                      letter-spacing: 1px;
+                      line-height: 1.2;">
+                Te quiero demasiado
+            </p>
+            <p style="font-size: 2.5em; 
+                      margin: 15px 0 0 0;
+                      animation: latir 1.5s ease-in-out infinite;
+                      display: inline-block;
+                      filter: drop-shadow(0 0 20px rgba(232, 93, 117, 0.5));">
+                ❤️
+            </p>
+        </div>
+        
+        <style>
+            @keyframes latir {
+                0%, 100% { transform: scale(1); }
+                25% { transform: scale(1.2); }
+                50% { transform: scale(1); }
+                75% { transform: scale(1.15); }
+            }
+        </style>
+
         <footer>
             <p>Hecho con amor (y un poco de código) para ti.</p>
         </footer>
@@ -368,8 +414,39 @@
     <script src="mensajes.js"></script>
     
     <script>
-        // FUNCIONES INTERACTIVAS
+        // FUNCIÓN PARA CAMBIAR DE SECCIÓN
+        function mostrarSeccion(nombreSeccion) {
+            // Ocultar todas las secciones
+            const secciones = document.querySelectorAll('.seccion-pagina');
+            secciones.forEach(function(seccion) {
+                seccion.classList.remove('activa');
+            });
+            
+            // Mostrar la sección seleccionada
+            const seccionActiva = document.getElementById('seccion-' + nombreSeccion);
+            if (seccionActiva) {
+                seccionActiva.classList.add('activa');
+            }
+            
+            // Actualizar el botón activo
+            const botones = document.querySelectorAll('.boton-menu');
+            botones.forEach(function(boton) {
+                boton.classList.remove('activo');
+            });
+            
+            // Encontrar el botón clicado
+            const botonesMenu = document.querySelectorAll('.boton-menu');
+            botonesMenu.forEach(function(boton) {
+                if (boton.textContent.toLowerCase().includes(nombreSeccion)) {
+                    boton.classList.add('activo');
+                }
+            });
+            
+            // Desplazarse al inicio de la página
+            window.scrollTo(0, 0);
+        }
         
+        // FUNCIONES INTERACTIVAS
         function mostrarSecreto() {
             alert("Mirarte es soplar las velas teniendo el deseo en frente ❤️");
         }

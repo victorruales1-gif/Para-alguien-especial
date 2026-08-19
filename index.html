@@ -194,11 +194,11 @@
         loading="lazy">
         </iframe>
     </div>
-   <!-- SECCIÓN DE GALERÍA -->
+  <!-- SECCIÓN DE GALERÍA -->
 <div class="seccion">
-    <h2>Te extraño...</h2>
+    <h2>Cosas que Me Recuerdan a Ti</h2>
     
-    <!-- Video de TikTok (PRIMERO) -->
+    <!-- Video de TikTok (PRIMERO, fuera de la galería) -->
     <div style="max-width: 500px; 
                 margin: 20px auto; 
                 border-radius: 12px; 
@@ -221,8 +221,10 @@
         .tiktok-embed p { display: none !important; }
     </style>
     
-    <!-- Imagen (DESPUÉS) -->
-    <div id="galeria"></div>
+    <!-- Imagen (DESPUÉS, dentro de su contenedor) -->
+    <div id="galeria" style="display: block; width: 100%;">
+        <!-- Aquí se cargan las fotos desde mensajes.js -->
+    </div>
 </div>
     
     <!-- Estilos para ocultar créditos del TikTok -->

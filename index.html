@@ -195,12 +195,14 @@
         </iframe>
     </div>
   <!-- SECCIÓN DE GALERÍA -->
-<div class="seccion">
+<!-- SECCIÓN DE GALERÍA -->
+<div class="seccion" style="text-align: center;">
     <h2>Cosas que Me Recuerdan a Ti</h2>
     
-    <!-- Video de TikTok (PRIMERO, fuera de la galería) -->
+    <!-- Video de TikTok -->
     <div style="max-width: 500px; 
                 margin: 20px auto; 
+                display: block;
                 border-radius: 12px; 
                 overflow: hidden; 
                 border: 3px solid #D4AF37;
@@ -208,33 +210,29 @@
         <blockquote class="tiktok-embed" 
                     cite="https://www.tiktok.com/@lieexz/video/7030842762719235334" 
                     data-video-id="7030842762719235334" 
-                    style="max-width: 100%; min-width: 100%; margin: 0; border: none;">
+                    style="max-width: 100%; min-width: 100%; margin: 0; border: none; display: block;">
             <section></section>
         </blockquote>
         <script async src="https://www.tiktok.com/embed.js"></script>
     </div>
     
-    <!-- Estilos para ocultar créditos del TikTok -->
-    <style>
-        .tiktok-embed section { display: none !important; }
-        .tiktok-embed a[title*="@"] { display: none !important; }
-        .tiktok-embed p { display: none !important; }
-    </style>
-    
-    <!-- Imagen (DESPUÉS, dentro de su contenedor) -->
-    <div id="galeria" style="display: block; width: 100%;">
-        <!-- Aquí se cargan las fotos desde mensajes.js -->
+    <!-- Imagen -->
+    <div id="galeria" style="display: block; width: 100%; margin: 20px 0;">
+        <!-- Las fotos se cargan aquí desde mensajes.js -->
     </div>
-</div>
     
-    <!-- Estilos para ocultar créditos del TikTok -->
     <style>
         .tiktok-embed section { display: none !important; }
         .tiktok-embed a[title*="@"] { display: none !important; }
         .tiktok-embed p { display: none !important; }
+        #galeria img {
+            display: block;
+            margin: 0 auto;
+            max-width: 500px;
+            width: 100%;
+        }
     </style>
 </div>
-    
     <div class="seccion">
         <h2>Pequeñas Razones, Grandes Sentimientos</h2>
         <p class="nota-musical">Un número nunca alcanzará para contarlas todas...</p>

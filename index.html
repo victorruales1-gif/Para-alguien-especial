@@ -194,13 +194,11 @@
         loading="lazy">
         </iframe>
     </div>
-    
-    <!-- SECCIÓN DE GALERÍA -->
+   <!-- SECCIÓN DE GALERÍA -->
 <div class="seccion">
     <h2>Cosas que Me Recuerdan a Ti</h2>
-    <div id="galeria"></div>
     
-    <!-- Video de TikTok -->
+    <!-- Video de TikTok (PRIMERO) -->
     <div style="max-width: 500px; 
                 margin: 20px auto; 
                 border-radius: 12px; 
@@ -215,6 +213,17 @@
         </blockquote>
         <script async src="https://www.tiktok.com/embed.js"></script>
     </div>
+    
+    <!-- Estilos para ocultar créditos del TikTok -->
+    <style>
+        .tiktok-embed section { display: none !important; }
+        .tiktok-embed a[title*="@"] { display: none !important; }
+        .tiktok-embed p { display: none !important; }
+    </style>
+    
+    <!-- Imagen (DESPUÉS) -->
+    <div id="galeria"></div>
+</div>
     
     <!-- Estilos para ocultar créditos del TikTok -->
     <style>

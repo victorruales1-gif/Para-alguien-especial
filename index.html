@@ -195,10 +195,34 @@
         </iframe>
     </div>
     
-    <div class="seccion">
-        <h2>Cosas que Me Recuerdan a Ti</h2>
-        <div id="galeria"></div>
+    <!-- SECCIÓN DE GALERÍA -->
+<div class="seccion">
+    <h2>Cosas que Me Recuerdan a Ti</h2>
+    <div id="galeria"></div>
+    
+    <!-- Video de TikTok -->
+    <div style="max-width: 500px; 
+                margin: 20px auto; 
+                border-radius: 12px; 
+                overflow: hidden; 
+                border: 3px solid #D4AF37;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+        <blockquote class="tiktok-embed" 
+                    cite="https://www.tiktok.com/@lieexz/video/7030842762719235334" 
+                    data-video-id="7030842762719235334" 
+                    style="max-width: 100%; min-width: 100%; margin: 0; border: none;">
+            <section></section>
+        </blockquote>
+        <script async src="https://www.tiktok.com/embed.js"></script>
     </div>
+    
+    <!-- Estilos para ocultar créditos del TikTok -->
+    <style>
+        .tiktok-embed section { display: none !important; }
+        .tiktok-embed a[title*="@"] { display: none !important; }
+        .tiktok-embed p { display: none !important; }
+    </style>
+</div>
     
     <div class="seccion">
         <h2>Pequeñas Razones, Grandes Sentimientos</h2>

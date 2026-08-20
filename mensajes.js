@@ -29,30 +29,23 @@ const mensajes = [
 ];
 
 // CONSTANTES DEL CORAZÓN
-const LATIDOS_POR_MINUTO = 80; // Promedio de un corazón adulto en reposo
-const LATIDOS_POR_SEGUNDO = LATIDOS_POR_MINUTO / 60; // 1.33 latidos por segundo
+const LATIDOS_POR_MINUTO = 80;
+const LATIDOS_POR_SEGUNDO = LATIDOS_POR_MINUTO / 60;
 
 function cargarContador() {
     const ahora = new Date().getTime();
     const diferenciaEnMilisegundos = ahora - fechaEspecial;
     const diferenciaEnSegundos = Math.floor(diferenciaEnMilisegundos / 1000);
-    
-    // Calcular latidos totales
     const latidosTotales = Math.floor(diferenciaEnSegundos * LATIDOS_POR_SEGUNDO);
-    
-    // Formatear con separadores de miles (ej: 18,489,600)
     const latidosFormateados = latidosTotales.toLocaleString('es-ES');
-    
-    // Mostrar en el HTML
-    document.getElementById('contador').innerHTML = 
-        "❤️ " + latidosFormateados + " latidos";
+    document.getElementById('contador').innerHTML = "❤️ " + latidosFormateados + " latidos";
 }
 
 function cargarGaleria() {
     const contenedor = document.getElementById('galeria');
     let html = '';
     fotos.forEach(foto => {
-        html += `<img src="${foto}" alt="Momento especial">`;
+        html += '<img src="' + foto + '" alt="Momento especial">';
     });
     contenedor.innerHTML = html;
 }
@@ -61,18 +54,13 @@ function cargarMensajes() {
     const contenedor = document.getElementById('lista-mensajes');
     let html = '';
     mensajes.forEach(mensaje => {
-        html += `<div class="mensaje-item">
-                    <p class="fecha-mensaje">${mensaje.fecha}</p>
-                    <p>${mensaje.texto}</p>
-                 </div>`;
+        html += '<div class="mensaje-item"><p class="fecha-mensaje">' + mensaje.fecha + '</p><p>' + mensaje.texto + '</p></div>';
     });
     contenedor.innerHTML = html;
 }
 
-// Ejecutar todo
 cargarContador();
 cargarGaleria();
 cargarMensajes();
 
-// Actualizar contador cada segundo
 setInterval(cargarContador, 1000);

@@ -481,36 +481,54 @@
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
         
-        // CUENTA REGRESIVA
-        function cargarCuentaRegresivaFuturo() {
-            let fechaInicio = localStorage.getItem('fecha-inicio-paso-futuro');
-            
-            if (!fechaInicio) {
-                fechaInicio = new Date().getTime();
-                localStorage.setItem('fecha-inicio-paso-futuro', fechaInicio);
-            }
-            
-            const fechaFin = parseInt(fechaInicio) + (30 * 24 * 60 * 60 * 1000);
-            const ahora = new Date().getTime();
-            const diferencia = fechaFin - ahora;
-            
-            if (diferencia <= 0) {
-                document.getElementById('cuenta-regresiva-futuro').innerHTML = "🎉 ¡Llegó el momento!";
-                document.getElementById('mensaje-cuenta-regresiva').innerHTML = "El 'nosotros' ya se escribió con todas sus letras. ¿Lo hacemos eterno?";
-                return;
-            }
-            
-            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
-            
-            document.getElementById('cuenta-regresiva-futuro').innerHTML = 
-                dias + " días, " + horas + " hrs, " + minutos + " min, " + segundos + " seg";
-        }
-        
-        cargarCuentaRegresivaFuturo();
-        setInterval(cargarCuentaRegresivaFuturo, 1000);
+       // ==========================================
+// CONTADOR DE DÍAS SIN HABLAR
+// ==========================================
+function cargarContadorSinHablar() {
+    // Fecha de inicio: Sábado 5 de septiembre de 2026
+    const fechaInicio = new Date('2026-09-05T00:00:00').getTime();
+    const ahora = new Date().getTime();
+    const diferencia = ahora - fechaInicio;
+    
+    // Si aún no llega la fecha
+    if (diferencia < 0) {
+        document.getElementById('contador-sin-hablar').innerHTML = "Aún no empieza...";
+        document.getElementById('mensaje-sin-hablar').innerHTML = "El silencio aún no ha comenzado.";
+        return;
+    }
+    
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+    
+    document.getElementById('contador-sin-hablar').innerHTML = 
+        dias + " días, " + horas + " hrs, " + minutos + " min, " + segundos + " seg";
+    
+    // Mensajes según los días
+    let mensaje = '';
+    
+    if (dias === 0) {
+        mensaje = "0 días sin hablar... y ya quiero romper el hielo. 🧊❤️";
+    } else if (dias === 1) {
+        mensaje = "1 día sin hablar... y ya te extraño como si fueran 100.";
+    } else if (dias <= 3) {
+        mensaje = dias + " días sin hablar. Mi paciencia está bien, pero mi corazón ya quiere rendirse.";
+    } else if (dias <= 7) {
+        mensaje = dias + " días sin hablar... y nosotros aquí, fingiendo que no nos extrañamos. (Mentira, yo sé que me extrañas demasiado).";
+    } else if (dias <= 15) {
+        mensaje = dias + " días sin hablar. Si esto fuera un deporte, ya tendríamos medalla de oro. 🏆";
+    } else if (dias <= 30) {
+        mensaje = dias + " días sin hablar... y ya no sé si esto es un récord o un castigo.";
+    } else {
+        mensaje = dias + " días sin hablar. Ya perdí la cuenta, pero no las ganas de escucharte.Pero supongo que se acabó...";
+    }
+    
+    document.getElementById('mensaje-sin-hablar').innerHTML = mensaje;
+}
+
+cargarContadorSinHablar();
+setInterval(cargarContadorSinHablar, 1000);
         
         // CAMBIAR DE SECCIÓN
         function mostrarSeccion(nombreSeccion) {

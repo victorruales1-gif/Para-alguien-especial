@@ -65,37 +65,8 @@ function cargarMensajes() {
     contenedor.innerHTML = html;
 }
 
-function cargarContadorBrazos() {
-    const fechaInicio = new Date('2026-09-21T00:00:00').getTime();
-    const ahora = new Date().getTime();
-    const diferencia = ahora - fechaInicio;
-    
-    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
-    
-    document.getElementById('contador-brazos').innerHTML = 
-        dias + " días, " + horas + " hrs, " + minutos + " min, " + segundos + " seg";
-    
-    let mensaje = '';
-    
-    if (dias === 0) {
-        mensaje = "¡Hoy vuelves a mis brazos! ❤️";
-    } else if (dias === 1) {
-        mensaje = "1 día desde que no te tengo cerca... y ya quiero que vuelvas a mis brazos.";
-    } else if (dias <= 3) {
-        mensaje = dias + " días desde que te fuiste. Mi corazón lleva la cuenta porque no puede olvidarte.";
-    } else if (dias <= 7) {
-        mensaje = dias + " días sin tus abrazos. Cada día es un paso más para volver a tenerte.";
-    } else if (dias <= 15) {
-        mensaje = dias + " días desde el lunes 21. Si los abrazos se midieran en días, ya te debería un siglo.";
-    } else {
-        mensaje = dias + " días esperando tu regreso. No importa cuántos sean, siempre serán menos de los que quiero tenerte cerca.";
-    }
-    
-    document.getElementById('mensaje-brazos').innerHTML = mensaje;
-}
+cargarContador();
+cargarGaleria();
+cargarMensajes();
 
-cargarContadorBrazos();
-setInterval(cargarContadorBrazos, 1000);
+setInterval(cargarContador, 1000);

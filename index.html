@@ -485,51 +485,40 @@
        // ==========================================
 // CONTADOR DE DÍAS SIN HABLAR
 // ==========================================
-function cargarContadorSinHablar() {
-    // Fecha de inicio: Sábado 5 de septiembre de 2026
-    const fechaInicio = new Date('2026-09-05T00:00:00').getTime();
+function cargarContadorBrazos() {
+    const fechaInicio = new Date('2026-09-21T00:00:00').getTime();
     const ahora = new Date().getTime();
     const diferencia = ahora - fechaInicio;
-    
-    // Si aún no llega la fecha
-    if (diferencia < 0) {
-        document.getElementById('contador-sin-hablar').innerHTML = "Aún no empieza...";
-        document.getElementById('mensaje-sin-hablar').innerHTML = "El silencio aún no ha comenzado.";
-        return;
-    }
     
     const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
     const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
     const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
     
-    document.getElementById('contador-sin-hablar').innerHTML = 
+    document.getElementById('contador-brazos').innerHTML = 
         dias + " días, " + horas + " hrs, " + minutos + " min, " + segundos + " seg";
     
-    // Mensajes según los días
     let mensaje = '';
     
     if (dias === 0) {
-        mensaje = "0 días sin hablar... y ya quiero romper el hielo. 🧊❤️";
+        mensaje = "¡Hoy vuelves a mis brazos! ❤️";
     } else if (dias === 1) {
-        mensaje = "1 día sin hablar... y ya te extraño como si fueran 100.";
+        mensaje = "1 día desde que no te tengo cerca... y ya quiero que vuelvas a mis brazos.";
     } else if (dias <= 3) {
-        mensaje = dias + " días sin hablar. Mi paciencia está bien, pero mi corazón ya quiere rendirse.";
+        mensaje = dias + " días desde que te fuiste. Mi corazón lleva la cuenta porque no puede olvidarte.";
     } else if (dias <= 7) {
-        mensaje = dias + " días sin hablar... y nosotros aquí, fingiendo que no nos extrañamos. (Mentira, yo sé que me extrañas demasiado).";
+        mensaje = dias + " días sin tus abrazos. Cada día es un paso más para volver a tenerte.";
     } else if (dias <= 15) {
-        mensaje = dias + " días sin hablar. Si esto fuera un deporte, ya tendríamos medalla de oro. 🏆";
-    } else if (dias <= 30) {
-        mensaje = dias + " días sin hablar... y ya no sé si esto es un récord o un castigo.";
+        mensaje = dias + " días desde el lunes 21. Si los abrazos se midieran en días, ya te debería un siglo.";
     } else {
-        mensaje = dias + " días sin hablar. Ya perdí la cuenta, pero no las ganas de escucharte.Pero supongo que se acabó...";
+        mensaje = dias + " días esperando tu regreso. No importa cuántos sean, siempre serán menos de los que quiero tenerte cerca.";
     }
     
-    document.getElementById('mensaje-sin-hablar').innerHTML = mensaje;
+    document.getElementById('mensaje-brazos').innerHTML = mensaje;
 }
 
-cargarContadorSinHablar();
-setInterval(cargarContadorSinHablar, 1000);
+cargarContadorBrazos();
+setInterval(cargarContadorBrazos, 1000);
         
         // CAMBIAR DE SECCIÓN
         function mostrarSeccion(nombreSeccion) {

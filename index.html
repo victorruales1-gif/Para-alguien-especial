@@ -109,20 +109,6 @@
             <p class="poesia-contador">El 11 de Mayo de 2026 mi corazón aprendió a latir por dos.</p>
         </div>
         
-<!-- CONTADOR DÍAS HASTA VOLVER A TUS BRAZOS -->
-<div class="contador-caja" style="margin-top: 20px; border: 1px solid #E85D75; background-color: rgba(255, 255, 255, 0.9);">
-    <h2 style="font-family: 'Cormorant Garamond', serif; color: #E85D75; font-size: 1.6em; margin-bottom: 10px;">
-        ⏳ Días Hasta Volver a Tus Brazos
-    </h2>
-    <p id="contador-brazos" style="font-size: 2em; color: #E85D75; font-weight: bold; letter-spacing: 2px; margin: 10px 0;">
-        Calculando...
-    </p>
-    <p id="mensaje-brazos" class="poesia-contador" style="color: #8A7E72; font-style: italic;">
-        Cargando...
-    </p>
-</div>
-
-
         <!-- MENSAJE SEGÚN LA HORA -->
         <div class="mensaje-hora" style="text-align: center; padding: 15px; margin: 15px 0;">
             <p id="saludo-hora" style="font-size: 1.3em; font-family: 'Cormorant Garamond', serif; color: #C9A227; font-style: italic; margin-bottom: 5px;"></p>
@@ -485,40 +471,6 @@
        // ==========================================
 // CONTADOR DE DÍAS SIN HABLAR
 // ==========================================
-function cargarContadorBrazos() {
-    const fechaInicio = new Date('2026-09-21T00:00:00').getTime();
-    const ahora = new Date().getTime();
-    const diferencia = ahora - fechaInicio;
-    
-    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
-    
-    document.getElementById('contador-brazos').innerHTML = 
-        dias + " días, " + horas + " hrs, " + minutos + " min, " + segundos + " seg";
-    
-    let mensaje = '';
-    
-    if (dias === 0) {
-        mensaje = "¡Hoy vuelves a mis brazos! ❤️";
-    } else if (dias === 1) {
-        mensaje = "1 día desde que no te tengo cerca... y ya quiero que vuelvas a mis brazos.";
-    } else if (dias <= 3) {
-        mensaje = dias + " días desde que te fuiste. Mi corazón lleva la cuenta porque no puede olvidarte.";
-    } else if (dias <= 7) {
-        mensaje = dias + " días sin tus abrazos. Cada día es un paso más para volver a tenerte.";
-    } else if (dias <= 15) {
-        mensaje = dias + " días desde el lunes 21. Si los abrazos se midieran en días, ya te debería un siglo.";
-    } else {
-        mensaje = dias + " días esperando tu regreso. No importa cuántos sean, siempre serán menos de los que quiero tenerte cerca.";
-    }
-    
-    document.getElementById('mensaje-brazos').innerHTML = mensaje;
-}
-
-cargarContadorBrazos();
-setInterval(cargarContadorBrazos, 1000);
         
         // CAMBIAR DE SECCIÓN
         function mostrarSeccion(nombreSeccion) {

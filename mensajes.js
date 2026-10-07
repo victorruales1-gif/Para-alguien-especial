@@ -14,6 +14,10 @@ const fotos = [
 // 3. TUS POEMAS Y MENSAJES
 const mensajes = [
     {
+        fecha: "⭐",
+        texto: "Y al verte entendí por que existen grandes obras sin titulo, porque hay cosas que, cuando son demasiado grandes, simplemente no caben en una palabra. Hay obras que no necesitan nombre, basta con mirarlas para sentir algo que uno no sabe explicar. Y mirame aquí, frente a ti, intentando hacer con palabras lo que las palabras no pueden hacer. No sé que adjetivo inventar, qué metáfora robarle a agún poeta muerto, qué frase escribir para acercarme siquiera un poco a lo que eres y quizá ahí está mi fracaso, que llevo tantas palabras dentro y ninguna parece suficiente cuando se trata de ti. Porque puedo escribir sobre tus ojos, sobre tu boca, sobre la forma en la que tu presencia consigue desordenarme la cabeza... Pero todo eso sigue siendo apenas una mala aproximación. 
+    },
+    {
         fecha: "🌌",
         texto: "No quiero decirte que eres mi universo, eso sería científicamente incorrecto.\nEl universo es demasiado grande, hay galaxias que jamás veremos, estrellas cuya luz todavía no nos alcanza y lugares donde quizá exista algo que ni siquiera imaginamos.\n\nLo que quiero decirte es algo mucho más extraño:\nEntre todo lo que existe, entre todo lo que puede existir y entre todo aquello que jamás llegará a existir, tú eres la parte del universo que me interesa conocer hasta el final."
     },

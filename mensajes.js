@@ -7,15 +7,14 @@ const fechaEspecial = new Date('2026-05-11').getTime();
 
 // 2. TUS FOTOS
 const fotos = [
-    "https://i.imgur.com/h1lB69E.jpg",
-    // Puedes agregar más fotos aquí...
+    "https://i.imgur.com/h1lB69E.jpg"
 ];
 
 // 3. TUS POEMAS Y MENSAJES
 const mensajes = [
     {
         fecha: "⭐",
-        texto: "Y al verte entendí por que existen grandes obras sin titulo, porque hay cosas que, cuando son demasiado grandes, simplemente no caben en una palabra. Hay obras que no necesitan nombre, basta con mirarlas para sentir algo que uno no sabe explicar. Y mirame aquí, frente a ti, intentando hacer con palabras lo que las palabras no pueden hacer. No sé que adjetivo inventar, qué metáfora robarle a agún poeta muerto, qué frase escribir para acercarme siquiera un poco a lo que eres y quizá ahí está mi fracaso, que llevo tantas palabras dentro y ninguna parece suficiente cuando se trata de ti. Porque puedo escribir sobre tus ojos, sobre tu boca, sobre la forma en la que tu presencia consigue desordenarme la cabeza... Pero todo eso sigue siendo apenas una mala aproximación. 
+        texto: "Y al verte entendí por qué existen grandes obras sin título, porque hay cosas que, cuando son demasiado grandes, simplemente no caben en una palabra. Hay obras que no necesitan nombre, basta con mirarlas para sentir algo que uno no sabe explicar. Y mírame aquí, frente a ti, intentando hacer con palabras lo que las palabras no pueden hacer. No sé qué adjetivo inventar, qué metáfora robarle a algún poeta muerto, qué frase escribir para acercarme siquiera un poco a lo que eres y quizá ahí está mi fracaso, que llevo tantas palabras dentro y ninguna parece suficiente cuando se trata de ti. Porque puedo escribir sobre tus ojos, sobre tu boca, sobre la forma en la que tu presencia consigue desordenarme la cabeza... Pero todo eso sigue siendo apenas una mala aproximación."
     },
     {
         fecha: "🌌",
@@ -54,7 +53,7 @@ function cargarContador() {
 function cargarGaleria() {
     const contenedor = document.getElementById('galeria');
     let html = '';
-    fotos.forEach(foto => {
+    fotos.forEach(function(foto) {
         html += '<img src="' + foto + '" alt="Momento especial">';
     });
     contenedor.innerHTML = html;
@@ -63,8 +62,11 @@ function cargarGaleria() {
 function cargarMensajes() {
     const contenedor = document.getElementById('lista-mensajes');
     let html = '';
-    mensajes.forEach(mensaje => {
-        html += '<div class="mensaje-item"><p class="fecha-mensaje">' + mensaje.fecha + '</p><p>' + mensaje.texto + '</p></div>';
+    mensajes.forEach(function(mensaje) {
+        html += '<div class="mensaje-item">';
+        html += '<p class="fecha-mensaje">' + mensaje.fecha + '</p>';
+        html += '<p>' + mensaje.texto + '</p>';
+        html += '</div>';
     });
     contenedor.innerHTML = html;
 }

@@ -544,3 +544,66 @@ footer {
         padding: 8px 14px;
     }
 }
+
+/* ==========================================
+   LÍNEA DE VIDA (ELECTROCARDIOGRAMA)
+   ========================================== */
+.linea-vida {
+    width: 100%;
+    height: 60px;
+    margin: 15px 0;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05), transparent);
+    border-radius: 10px;
+}
+
+.linea-vida svg {
+    width: 200%;
+    height: 100%;
+    display: block;
+    animation: latidoLinea 1.2s linear infinite;
+}
+
+.linea-vida polyline {
+    fill: none;
+    stroke: #D4AF37;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.8));
+}
+
+/* Animación: la línea se mueve de derecha a izquierda */
+@keyframes latidoLinea {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Efecto de brillo pulsante adicional */
+.linea-vida::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.15), transparent);
+    animation: brilloLinea 1.2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes brilloLinea {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateX(-100%);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(100%);
+    }
+}

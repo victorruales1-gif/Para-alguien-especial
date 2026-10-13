@@ -38,9 +38,6 @@ const mensajes = [
 // NO TOQUES NADA DE AQUÍ PARA ABAJO
 // ==========================================
 
-const LATIDOS_POR_MINUTO = 80;
-const LATIDOS_POR_SEGUNDO = LATIDOS_POR_MINUTO / 60;
-
 function cargarContador() {
     const ahora = new Date().getTime();
     const diferenciaEnMilisegundos = ahora - fechaEspecial;
@@ -48,6 +45,12 @@ function cargarContador() {
     const latidosTotales = Math.floor(diferenciaEnSegundos * LATIDOS_POR_SEGUNDO);
     const latidosFormateados = latidosTotales.toLocaleString('es-ES');
     document.getElementById('contador').innerHTML = "❤️ " + latidosFormateados + " latidos";
+    
+    // Sincronizar la línea de vida con el latido
+    const linea = document.querySelector('.linea-vida svg');
+    if (linea) {
+        linea.style.animationDuration = (60 / LATIDOS_POR_MINUTO) + 's';
+    }
 }
 
 function cargarGaleria() {

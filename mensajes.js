@@ -38,6 +38,9 @@ const mensajes = [
 // NO TOQUES NADA DE AQUÍ PARA ABAJO
 // ==========================================
 
+const LATIDOS_POR_MINUTO = 80;
+const LATIDOS_POR_SEGUNDO = LATIDOS_POR_MINUTO / 60;
+
 function cargarContador() {
     const ahora = new Date().getTime();
     const diferenciaEnMilisegundos = ahora - fechaEspecial;

@@ -42,6 +42,7 @@
             <button class="boton-menu" onclick="mostrarSeccion('lugares')">🗺️ Lugares</button>
             <button class="boton-menu" onclick="mostrarSeccion('recuerdos')">🌟 Recuerdos</button>
             <button class="boton-menu" onclick="mostrarSeccion('promesas')">💛 Promesas</button>
+            <button class="boton-menu" onclick="mostrarSeccion('suenos')">✨ Sueños</button>
         </div>
 
         <!-- ==========================================
@@ -192,21 +193,50 @@
         <!-- ==========================================
              SECCIÓN: LUGARES
              ========================================== -->
-        <div id="seccion-lugares" class="seccion-pagina">
+               <div id="seccion-lugares" class="seccion-pagina">
             <div class="seccion">
                 <h2>Lugares que Mi Corazón Quiere Recorrer Contigo</h2>
                 <p class="nota-musical">El destino no importa si vamos de la mano...</p>
-                <div class="mensaje-item">
-                    <p>🌅 Ver el atardecer en una playa</p>
-                    <p>☕ Un café en una calle escondida de París</p>
-                    <p>🌌 Contar estrellas en el desierto</p>
-                    <p>🎵 Bailar bajo la lluvia en cualquier ciudad</p>
-                    <p>🏔️ Ver la nieve por primera vez juntos</p>
-                    <p>🎡 Un parque de diversiones para ser niños otra vez</p>
+                
+                <div id="lista-lugares">
+                    <div class="mensaje-item">
+                        <p>🌅 Ver el atardecer en una playa sin nombre</p>
+                        <p>☕ Un café en una calle escondida de París</p>
+                        <p>🌌 Contar estrellas en el desierto</p>
+                        <p>🎵 Bailar bajo la lluvia en cualquier ciudad</p>
+                        <p>🏔️ Ver la nieve por primera vez juntos</p>
+                        <p>🎡 Un parque de diversiones para ser niños otra vez</p>
+                    </div>
+                </div>
+                
+                <div class="agregar-pelicula" style="display: flex; gap: 10px; margin-top: 15px;">
+                    <input type="text" id="nuevo-lugar" placeholder="Escribe un lugar que quieras visitar..." style="flex: 1; padding: 10px; border: 1px solid #F0D080; border-radius: 5px; background-color: #FFF8E7;" />
+                    <button onclick="agregarLugar()" style="background-color: #8B1E3F; color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-family: 'Cormorant Garamond', serif; font-weight: bold;">Agregar ➕</button>
                 </div>
             </div>
         </div>
-
+        <!-- ==========================================
+             SECCIÓN: NUESTROS SUEÑOS
+             ========================================== -->
+        <div id="seccion-suenos" class="seccion-pagina">
+            <div class="seccion">
+                <h2>Nuestros Sueños</h2>
+                <p class="nota-musical">Las metas que queremos alcanzar juntos...</p>
+                
+                <div id="lista-suenos">
+                    <div class="mensaje-item">
+                        <p>✨ Construir un hogar lleno de risas y paz.</p>
+                        <p>✈️ Viajar a un lugar que ninguno de los dos conozca.</p>
+                        <p>🌱 Crecer juntos, apoyándonos en cada meta.</p>
+                    </div>
+                </div>
+                
+                <div class="agregar-pelicula" style="display: flex; gap: 10px; margin-top: 15px;">
+                    <input type="text" id="nuevo-sueno" placeholder="Escribe un sueño que tengas conmigo..." style="flex: 1; padding: 10px; border: 1px solid #F0D080; border-radius: 5px; background-color: #FFF8E7;" />
+                    <button onclick="agregarSueno()" style="background-color: #8B1E3F; color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-family: 'Cormorant Garamond', serif; font-weight: bold;">Agregar ➕</button>
+                </div>
+            </div>
+        </div>
         <!-- ==========================================
              SECCIÓN: RECUERDOS
              ========================================== -->
@@ -446,7 +476,106 @@
                     listaPeliculas.appendChild(nuevoElemento);
                 });
             });
+                // ==========================================
+        // LUGARES EN FIREBASE (COLECCIÓN SEPARADA)
+        // ==========================================
+        function agregarLugar() {
+            const input = document.getElementById('nuevo-lugar');
+            const texto = input.value.trim();
+            
+            if (texto === '') {
+                alert('Escribe primero un lugar 🙈');
+                return;
+            }
+            
+            db.collection('lugares-pequena').add({
+                lugar: texto,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(function() {
+                input.value = '';
+            }).catch(function(error) {
+                console.error('Error:', error);
+                alert('Hubo un error al guardar el lugar.');
+            });
+        }
         
+        db.collection('lugares-pequena')
+            .orderBy('timestamp', 'asc')
+            .onSnapshot(function(snapshot) {
+                const lista = document.getElementById('lista-lugares');
+                if (!lista) return;
+                
+                // Mantenemos los lugares base
+                lista.innerHTML = '<div class="mensaje-item" id="lugares-base">' +
+                    '<p>🌅 Ver el atardecer en una playa sin nombre</p>' +
+                    '<p>☕ Un café en una calle escondida de París</p>' +
+                    '<p>🌌 Contar estrellas en el desierto</p>' +
+                    '<p>🎵 Bailar bajo la lluvia en cualquier ciudad</p>' +
+                    '<p>🚗 Perdernos en una carretera sin GPS</p>' +
+                    '<p>🏔️ Ver la nieve por primera vez juntos</p>' +
+                    '<p>🎡 Un parque de diversiones para ser niños otra vez</p>' +
+                    '<p>📚 Una librería antigua donde el tiempo se detenga</p>' +
+                    '</div>';
+                
+                const base = document.getElementById('lugares-base');
+                
+                snapshot.forEach(function(doc) {
+                    const data = doc.data();
+                    const nuevo = document.createElement('div');
+                    nuevo.className = 'mensaje-item';
+                    nuevo.style.margin = '10px 0';
+                    nuevo.innerHTML = '<p>📍 "' + data.lugar + '" — Agregado por nosotros ❤️</p>';
+                    lista.appendChild(nuevo);
+                });
+            });
+
+        // ==========================================
+        // SUEÑOS EN FIREBASE (COLECCIÓN SEPARADA)
+        // ==========================================
+        function agregarSueno() {
+            const input = document.getElementById('nuevo-sueno');
+            const texto = input.value.trim();
+            
+            if (texto === '') {
+                alert('Escribe primero un sueño 🙈');
+                return;
+            }
+            
+            db.collection('suenos-pequena').add({
+                sueno: texto,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(function() {
+                input.value = '';
+            }).catch(function(error) {
+                console.error('Error:', error);
+                alert('Hubo un error al guardar el sueño.');
+            });
+        }
+        
+        db.collection('suenos-pequena')
+            .orderBy('timestamp', 'asc')
+            .onSnapshot(function(snapshot) {
+                const lista = document.getElementById('lista-suenos');
+                if (!lista) return;
+                
+                // Mantenemos los sueños base
+                lista.innerHTML = '<div class="mensaje-item" id="suenos-base">' +
+                    '<p>✨ Construir un hogar lleno de risas y paz.</p>' +
+                    '<p>✈️ Viajar a un lugar que ninguno de los dos conozca.</p>' +
+                    '<p>🌱 Crecer juntos, apoyándonos en cada meta.</p>' +
+                    '</div>';
+                
+                const base = document.getElementById('suenos-base');
+                
+                snapshot.forEach(function(doc) {
+                    const data = doc.data();
+                    const nuevo = document.createElement('div');
+                    nuevo.className = 'mensaje-item';
+                    nuevo.style.margin = '10px 0';
+                    nuevo.innerHTML = '<p>🌟 "' + data.sueno + '" — Soñado por nosotros ❤️</p>';
+                    lista.appendChild(nuevo);
+                });
+            });
         // ==========================================
         // PREGUNTAS EN FIREBASE (COLECCIÓN SEPARADA)
         // ==========================================

@@ -43,6 +43,7 @@
             <button class="boton-menu" onclick="mostrarSeccion('recuerdos')">🌟 Recuerdos</button>
             <button class="boton-menu" onclick="mostrarSeccion('promesas')">💛 Promesas</button>
             <button class="boton-menu" onclick="mostrarSeccion('suenos')">✨ Sueños</button>
+            <button class="boton-menu" onclick="mostrarSeccion('sorpresas')">🎁 Sorpresas</button>
         </div>
 
         <!-- ==========================================
@@ -235,6 +236,30 @@
                     <input type="text" id="nuevo-sueno" placeholder="Escribe un sueño que tengas conmigo..." style="flex: 1; padding: 10px; border: 1px solid #F0D080; border-radius: 5px; background-color: #FFF8E7;" />
                     <button onclick="agregarSueno()" style="background-color: #8B1E3F; color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-family: 'Cormorant Garamond', serif; font-weight: bold;">Agregar ➕</button>
                 </div>
+            </div>
+        </div>
+
+                <!-- ==========================================
+             SECCIÓN: SORPRESAS
+             ========================================== -->
+        <div id="seccion-sorpresas" class="seccion-pagina">
+            <div class="seccion" style="text-align: center; margin-top: 40px;">
+                <button onclick="mostrarSecreto()" 
+                        style="background-color: #d4af37; 
+                               color: #1a1a1a; 
+                               border: none; 
+                               padding: 18px 35px; 
+                               font-family: 'Cormorant Garamond', serif; 
+                               font-size: 1.4em; 
+                               border-radius: 50px; 
+                               cursor: pointer;
+                               font-weight: bold;
+                               box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+                               transition: all 0.3s ease;"
+                        onmouseover="this.style.transform='scale(1.05)'"
+                        onmouseout="this.style.transform='scale(1)'">
+                    💛 Tócame si quieres saber un secreto
+                </button>
             </div>
         </div>
         <!-- ==========================================
@@ -689,5 +714,11 @@
         // Cargar todo al iniciar
         cargarMensajePorHora();
     </script>
+            // ==========================================
+        // FUNCIÓN DEL BOTÓN SECRETO
+        // ==========================================
+        function mostrarSecreto() {
+            alert("Mirarte es soplar las velas teniendo el deseo en frente ❤️");
+        }
 </body>
 </html>

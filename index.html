@@ -527,7 +527,7 @@
                 minute: '2-digit'
             });
             
-            db.collection('mensajes').add({
+            db.collection('mensajes-pequena').add({
                 texto: texto,
                 fecha: fechaFormateada,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
@@ -540,7 +540,7 @@
             });
         }
         
-        db.collection('mensajes')
+        db.collection('mensajes-pequena')
             .orderBy('timestamp', 'desc')
             .limit(50)
             .onSnapshot(function(snapshot) {
@@ -566,7 +566,60 @@
                 document.getElementById('lista-mensajes-compartidos').innerHTML = 
                     '<p style="color: #C48A8A;">Error al cargar mensajes.</p>';
             });
+                // ==========================================
+        // PREGUNTAS EN FIREBASE (COLECCIÓN SEPARADA)
+        // ==========================================
+        function agregarPregunta() {
+            const input = document.getElementById('nueva-pregunta');
+            const texto = input.value.trim();
+            
+            if (texto === '') {
+                alert('Escribe primero una pregunta 🙈');
+                return;
+            }
+            
+            db.collection('preguntas-pequena').add({
+                pregunta: texto,
+                respuesta: '',
+                fecha: new Date().toLocaleDateString('es-ES'),
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(function() {
+                input.value = '';
+                alert('✅ Pregunta agregada');
+            }).catch(function(error) {
+                console.error('Error:', error);
+                alert('Hubo un error al guardar. Revisa las reglas de Firebase.');
+            });
+        }
         
+        db.collection('preguntas-pequena')
+            .orderBy('timestamp', 'asc')
+            .onSnapshot(function(snapshot) {
+                const contenedor = document.getElementById('lista-preguntas');
+                if (!contenedor) return;
+                
+                if (snapshot.empty) {
+                    contenedor.innerHTML = '<p style="color: #A09888; font-style: italic; text-align: center;">Aún no hay preguntas.</p>';
+                    return;
+                }
+                
+                let html = '';
+                snapshot.forEach(function(doc) {
+                    const data = doc.data();
+                    html += '<div class="pregunta-item" style="text-align: left;">';
+                    html += '<label style="font-family: \'Cormorant Garamond\', serif; color: #8B1E3F; font-size: 1.2em; display: block; margin-bottom: 10px;">✦ ' + data.pregunta + '</label>';
+                    html += '<textarea placeholder="Escribe tu respuesta aquí..." rows="3" style="width: 100%; background-color: #FFF8E7; color: #3D3D3D; border: 1px solid #F0D080; border-radius: 5px; padding: 12px; font-family: \'Cormorant Garamond\', serif; font-size: 1em; resize: vertical; box-sizing: border-box;" onchange="guardarRespuesta(\'' + doc.id + '\', this.value)">' + (data.respuesta || '') + '</textarea>';
+                    html += '</div>';
+                });
+                
+                contenedor.innerHTML = html;
+            });
+        
+        function guardarRespuesta(id, respuesta) {
+            db.collection('preguntas-pequena').doc(id).update({
+                respuesta: respuesta
+            });
+        }
         // Cargar todo al iniciar
         cargarMensajePorHora();
         cargarPeliculasGuardadas();

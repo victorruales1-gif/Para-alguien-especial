@@ -13,8 +13,8 @@
 }
 
 body {
-    background-color: #0D0D0D;
-    color: #E8E8E8;
+    background-color: #FFFDF5;
+    color: #4A3F3F;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
@@ -25,9 +25,7 @@ body {
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="26" font-size="26">❤️</text></svg>'), auto;
 }
 
-/* ==========================================
-   FONDO ANIMADO - ESTRELLAS TITILANDO
-   ========================================== */
+/* Fondo animado con pétalos suaves */
 body::before {
     content: '';
     position: fixed;
@@ -38,36 +36,19 @@ body::before {
     pointer-events: none;
     z-index: 0;
     background-image: 
-        radial-gradient(circle, rgba(212, 175, 55, 0.4) 1px, transparent 1px),
-        radial-gradient(circle, rgba(212, 175, 55, 0.3) 2px, transparent 2px),
-        radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+        radial-gradient(circle, rgba(240, 208, 128, 0.2) 1px, transparent 1px),
+        radial-gradient(circle, rgba(232, 180, 184, 0.15) 2px, transparent 2px),
+        radial-gradient(circle, rgba(139, 30, 63, 0.05) 1px, transparent 1px);
     background-size: 
         120px 120px,
         200px 200px,
         80px 80px;
-    animation: titilarEstrellas 4s ease-in-out infinite;
+    animation: flotarPetalos 8s ease-in-out infinite;
 }
 
-@keyframes titilarEstrellas {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-}
-
-body::after {
-    content: '✨';
-    position: fixed;
-    top: 20%;
-    left: 10%;
-    font-size: 24px;
-    color: rgba(212, 175, 55, 0.15);
-    pointer-events: none;
-    z-index: 0;
-    animation: flotarEstrella 6s ease-in-out infinite;
-}
-
-@keyframes flotarEstrella {
-    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
-    50% { transform: translateY(-20px) rotate(15deg); opacity: 0.4; }
+@keyframes flotarPetalos {
+    0%, 100% { opacity: 0.5; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-10px); }
 }
 
 .contenedor {
@@ -79,15 +60,15 @@ body::after {
 }
 
 /* ==========================================
-   TÍTULOS CON CURSIVA ELEGANTE
+   TÍTULOS
    ========================================== */
 h1 {
     font-family: 'Great Vibes', cursive;
-    color: #D4AF37;
+    color: #8B1E3F;
     font-size: 4em;
     margin-bottom: 5px;
     font-weight: 400;
-    text-shadow: 0 2px 20px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 2px 20px rgba(139, 30, 63, 0.2);
     letter-spacing: 2px;
 }
 
@@ -101,71 +82,63 @@ h1 {
 
 h2 {
     font-family: 'Dancing Script', cursive;
-    color: #D4AF37;
+    color: #8B1E3F;
     font-size: 2.5em;
     padding-bottom: 15px;
     margin-top: 50px;
-    text-shadow: 0 2px 15px rgba(212, 175, 55, 0.3);
+    text-shadow: 0 2px 15px rgba(139, 30, 63, 0.15);
     position: relative;
 }
 
-/* Separador decorativo */
 h2::after {
     content: '✦ ─────── ✦ ─────── ✦';
     display: block;
     font-size: 0.4em;
-    color: #D4AF37;
+    color: #F0D080;
     letter-spacing: 5px;
     margin-top: 10px;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 /* ==========================================
-   CONTADOR CON EFECTO DE BRILLO PULSANTE
+   CONTADOR DE DÍAS
    ========================================== */
 .contador-caja {
-    background-color: #1A1A1A;
-    border: 1px solid #D4AF37;
+    background-color: #FFFFFF;
+    border: 2px solid #F0D080;
     border-radius: 20px;
     padding: 30px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 30px rgba(212, 175, 55, 0.15);
+    box-shadow: 0 4px 30px rgba(139, 30, 63, 0.08);
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
 .contador-caja:hover {
-    box-shadow: 0 4px 50px rgba(212, 175, 55, 0.3);
-    border-color: #E8C158;
+    box-shadow: 0 4px 50px rgba(139, 30, 63, 0.15);
+    border-color: #8B1E3F;
 }
 
 #titulo-contador {
     font-family: 'Cormorant Garamond', serif;
-    color: #E8E8E8;
+    color: #8B1E3F;
     font-size: 1.6em;
     margin-bottom: 15px;
 }
 
-#contador {
+#contador-dias {
     font-size: 2.5em;
-    color: #D4AF37;
+    color: #8B1E3F;
     font-weight: bold;
     letter-spacing: 3px;
     margin: 10px 0;
     animation: brilloPulsante 2s ease-in-out infinite;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
 @keyframes brilloPulsante {
-    0%, 100% {
-        text-shadow: 0 0 10px rgba(212, 175, 55, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
-        color: #D4AF37;
-    }
-    50% {
-        text-shadow: 0 0 20px rgba(212, 175, 55, 0.9), 0 0 40px rgba(212, 175, 55, 0.5), 0 0 60px rgba(212, 175, 55, 0.3);
-        color: #F0D060;
-    }
+    0%, 100% { text-shadow: 0 0 10px rgba(139, 30, 63, 0.2); }
+    50% { text-shadow: 0 0 25px rgba(139, 30, 63, 0.4); }
 }
 
 .poesia-contador {
@@ -177,7 +150,7 @@ h2::after {
 }
 
 /* ==========================================
-   MENÚ DE NAVEGACIÓN CON BRILLO
+   MENÚ DE NAVEGACIÓN
    ========================================== */
 .menu-navegacion {
     display: flex;
@@ -186,17 +159,17 @@ h2::after {
     gap: 8px;
     margin: 30px 0;
     padding: 15px;
-    background-color: rgba(26, 26, 26, 0.8);
-    border: 1px solid #3D3520;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #F0D080;
     border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(139, 30, 63, 0.05);
     backdrop-filter: blur(10px);
 }
 
 .boton-menu {
     background-color: transparent;
-    color: #A09888;
-    border: 1px solid #3D3520;
+    color: #8B1E3F;
+    border: 1px solid #F0D080;
     padding: 10px 18px;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1em;
@@ -216,7 +189,7 @@ h2::after {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(240, 208, 128, 0.4), transparent);
     transition: left 0.5s ease;
 }
 
@@ -225,22 +198,22 @@ h2::after {
 }
 
 .boton-menu:hover {
-    background-color: #1A1A1A;
-    color: #D4AF37;
-    border-color: #D4AF37;
+    background-color: #FFF8E7;
+    color: #8B1E3F;
+    border-color: #8B1E3F;
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 4px 20px rgba(139, 30, 63, 0.15);
 }
 
 .boton-menu.activo {
-    background-color: #D4AF37;
-    color: #0D0D0D;
-    border-color: #D4AF37;
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+    background-color: #8B1E3F;
+    color: #FFFFFF;
+    border-color: #8B1E3F;
+    box-shadow: 0 4px 20px rgba(139, 30, 63, 0.3);
 }
 
 /* ==========================================
-   SECCIONES - ANIMACIÓN FADE + SLIDE
+   SECCIONES
    ========================================== */
 .seccion-pagina {
     display: none;
@@ -252,82 +225,62 @@ h2::after {
 }
 
 @keyframes aparecerSeccion {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 /* ==========================================
-   TARJETAS Y MENSAJES - FONDO TIPO PAPEL
+   TARJETAS Y MENSAJES
    ========================================== */
 .mensaje-item {
-    background-color: #1A1A1A;
+    background-color: #FFFFFF;
     padding: 25px;
     margin: 20px 0;
-    border-left: 3px solid #D4AF37;
+    border-left: 4px solid #8B1E3F;
     text-align: left;
     border-radius: 0 15px 15px 0;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4), inset 0 0 60px rgba(212, 175, 55, 0.03);
-    position: relative;
+    box-shadow: 0 4px 25px rgba(139, 30, 63, 0.06);
     transition: all 0.3s ease;
 }
 
 .mensaje-item:hover {
-    box-shadow: 0 4px 35px rgba(212, 175, 55, 0.15), inset 0 0 60px rgba(212, 175, 55, 0.05);
+    box-shadow: 0 4px 35px rgba(139, 30, 63, 0.12);
     transform: translateX(5px);
-}
-
-.mensaje-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
-    pointer-events: none;
-    border-radius: 0 15px 15px 0;
 }
 
 .mensaje-item p {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.3em;
-    line-height: 1.6;
-    color: #E8E8E8;
+    line-height: 1.7;
+    color: #4A3F3F;
     white-space: pre-line;
 }
 
 .fecha-mensaje {
-    font-size: 0.8em;
-    color: #A09888;
-    letter-spacing: 2px;
+    font-size: 0.85em;
+    color: #8B1E3F;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-weight: bold;
 }
 
 /* ==========================================
    PREGUNTAS Y TEXTAREAS
    ========================================== */
 .pregunta-item {
-    background-color: #1A1A1A;
+    background-color: #FFFFFF;
     padding: 20px;
     margin: 15px 0;
-    border-left: 3px solid #D4AF37;
+    border-left: 4px solid #F0D080;
     text-align: left;
     border-radius: 0 15px 15px 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 20px rgba(139, 30, 63, 0.05);
 }
 
 .pregunta-item label {
     font-family: 'Cormorant Garamond', serif;
-    color: #E8E8E8;
+    color: #8B1E3F;
     font-size: 1.2em;
     display: block;
     margin-bottom: 10px;
@@ -335,9 +288,9 @@ h2::after {
 
 .pregunta-item textarea {
     width: 100%;
-    background-color: #0D0D0D;
-    color: #E8E8E8;
-    border: 1px solid #3D3520;
+    background-color: #FFF8E7;
+    color: #4A3F3F;
+    border: 1px solid #F0D080;
     border-radius: 10px;
     padding: 12px;
     font-family: 'Montserrat', sans-serif;
@@ -350,40 +303,113 @@ h2::after {
 
 .pregunta-item textarea:focus {
     outline: none;
-    border-color: #D4AF37;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    border-color: #8B1E3F;
+    box-shadow: 0 0 15px rgba(139, 30, 63, 0.15);
 }
 
 .pregunta-item textarea::placeholder {
-    color: #5A5A5A;
+    color: #B0A59A;
     font-style: italic;
 }
 
 /* ==========================================
-   GALERÍA
+   GALERÍA DIVIDIDA
    ========================================== */
-#galeria {
-    display: block;
-    width: 100%;
-    margin-top: 20px;
+.subseccion-galeria {
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    border: 1px solid #F0D080;
+    box-shadow: 0 4px 20px rgba(139, 30, 63, 0.05);
+}
+
+.titulo-subseccion {
+    font-family: 'Dancing Script', cursive;
+    color: #8B1E3F;
+    font-size: 2em;
+    margin-bottom: 10px;
     text-align: center;
 }
 
-#galeria img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 20px;
-    border: 3px solid #D4AF37;
-    transition: all 0.3s ease;
-    margin: 0 auto;
-    display: block;
-    box-shadow: 0 4px 30px rgba(212, 175, 55, 0.2);
+.descripcion-subseccion {
+    font-family: 'Cormorant Garamond', serif;
+    color: #A09888;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.1em;
 }
 
-#galeria img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 40px rgba(212, 175, 55, 0.4);
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.tarjeta-galeria {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(139, 30, 63, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid #F0D080;
+}
+
+.tarjeta-galeria:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(139, 30, 63, 0.15);
+    border-color: #8B1E3F;
+}
+
+.tarjeta-galeria img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-galeria:hover img {
+    transform: scale(1.05);
+}
+
+.tarjeta-galeria .poema {
+    padding: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1em;
+    color: #4A3F3F;
+    line-height: 1.5;
+    text-align: center;
+    font-style: italic;
+    border-top: 1px solid #F0D080;
+    background-color: #FFF8E7;
+}
+
+.tarjeta-galeria .poema::before {
+    content: '❝';
+    color: #8B1E3F;
+    font-size: 1.5em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.tarjeta-galeria .poema::after {
+    content: '❞';
+    color: #8B1E3F;
+    font-size: 1.5em;
+    display: block;
+    margin-top: 5px;
+}
+
+.tarjeta-galeria.solo-foto .poema {
+    display: none;
+}
+
+.tarjeta-galeria.solo-foto img {
+    height: 300px;
+    object-fit: cover;
 }
 
 /* ==========================================
@@ -397,9 +423,9 @@ h2::after {
 
 .agregar-pelicula input {
     flex: 1;
-    background-color: #0D0D0D;
-    color: #E8E8E8;
-    border: 1px solid #3D3520;
+    background-color: #FFF8E7;
+    color: #4A3F3F;
+    border: 1px solid #F0D080;
     border-radius: 10px;
     padding: 12px 15px;
     font-family: 'Montserrat', sans-serif;
@@ -410,18 +436,13 @@ h2::after {
 
 .agregar-pelicula input:focus {
     outline: none;
-    border-color: #D4AF37;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-}
-
-.agregar-pelicula input::placeholder {
-    color: #5A5A5A;
-    font-style: italic;
+    border-color: #8B1E3F;
+    box-shadow: 0 0 15px rgba(139, 30, 63, 0.1);
 }
 
 .agregar-pelicula button {
-    background-color: #D4AF37;
-    color: #0D0D0D;
+    background-color: #8B1E3F;
+    color: #FFFFFF;
     border: none;
     padding: 12px 25px;
     border-radius: 10px;
@@ -431,33 +452,16 @@ h2::after {
     font-weight: bold;
     transition: all 0.3s ease;
     white-space: nowrap;
-    position: relative;
-    overflow: hidden;
-}
-
-.agregar-pelicula button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transition: left 0.5s ease;
-}
-
-.agregar-pelicula button:hover::before {
-    left: 100%;
 }
 
 .agregar-pelicula button:hover {
-    background-color: #E8C158;
+    background-color: #A52A4A;
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 4px 20px rgba(139, 30, 63, 0.2);
 }
 
 /* ==========================================
-   NOTAS MUSICALES
+   NOTAS MUSICALES Y FOOTER
    ========================================== */
 .nota-musical {
     font-style: italic;
@@ -467,143 +471,63 @@ h2::after {
     font-size: 1.1em;
 }
 
-/* ==========================================
-   FOOTER
-   ========================================== */
 footer {
     margin-top: 60px;
     padding-top: 20px;
-    border-top: 1px solid #3D3520;
+    border-top: 1px solid #F0D080;
     color: #A09888;
     font-style: italic;
     font-size: 0.9em;
 }
 
 /* ==========================================
-   BOTONES ESPECIALES
+   LIGHTBOX (IMAGEN AGRANDADA)
    ========================================== */
-.boton-secreto {
-    background-color: #D4AF37;
-    color: #0D0D0D;
-    border: none;
-    padding: 18px 35px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4em;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.boton-secreto::before {
-    content: '';
-    position: absolute;
+.lightbox {
+    display: none;
+    position: fixed;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-    transition: left 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
 }
 
-.boton-secreto:hover::before {
-    left: 100%;
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 15px;
+    border: 3px solid #F0D080;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
 }
 
-.boton-secreto:hover {
-    background-color: #E8C158;
-    transform: scale(1.05);
-    box-shadow: 0 8px 40px rgba(212, 175, 55, 0.7);
+.lightbox.activo {
+    display: flex;
+}
+
+.lightbox.activo img {
+    transform: scale(1);
 }
 
 /* ==========================================
    RESPONSIVE
    ========================================== */
 @media (max-width: 600px) {
-    h1 {
-        font-size: 2.8em;
+    h1 { font-size: 2.8em; }
+    h2 { font-size: 2em; }
+    #contador-dias { font-size: 1.8em; }
+    .mensaje-item p { font-size: 1.1em; }
+    .boton-menu { font-size: 0.85em; padding: 8px 14px; }
+    .grid-galeria {
+        grid-template-columns: 1fr;
     }
-    
-    h2 {
-        font-size: 2em;
-    }
-    
-    #contador {
-        font-size: 1.8em;
-    }
-    
-    .mensaje-item p {
-        font-size: 1.1em;
-    }
-    
-    .boton-menu {
-        font-size: 0.85em;
-        padding: 8px 14px;
-    }
-}
-
-/* ==========================================
-   LÍNEA DE VIDA (ELECTROCARDIOGRAMA)
-   ========================================== */
-.linea-vida {
-    width: 100%;
-    height: 60px;
-    margin: 15px 0;
-    overflow: hidden;
-    position: relative;
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05), transparent);
-    border-radius: 10px;
-}
-
-.linea-vida svg {
-    width: 200%;
-    height: 100%;
-    display: block;
-    animation: latidoLinea 1.2s linear infinite;
-}
-
-.linea-vida polyline {
-    fill: none;
-    stroke: #D4AF37;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.8));
-}
-
-/* Animación: la línea se mueve de derecha a izquierda */
-@keyframes latidoLinea {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-/* Efecto de brillo pulsante adicional */
-.linea-vida::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.15), transparent);
-    animation: brilloLinea 1.2s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes brilloLinea {
-    0%, 100% {
-        opacity: 0.3;
-        transform: translateX(-100%);
-    }
-    50% {
-        opacity: 0.8;
-        transform: translateX(100%);
+    .titulo-subseccion {
+        font-size: 1.6em;
     }
 }

@@ -1,16 +1,29 @@
 // ==========================================
-// ¡HOLA! EDITA AQUÍ PARA AGREGAR CONTENIDO NUEVO
+// FECHA ESPECIAL
 // ==========================================
-
-// 1. FECHA ESPECIAL
 const fechaEspecial = new Date('2026-05-11').getTime();
 
-// 2. TUS FOTOS
-const fotos = [
-    "https://i.imgur.com/h1lB69E.jpg"
+// ==========================================
+// GALERÍA: FOTOS DE USTEDES
+// ==========================================
+const fotosNosotros = [
+    
+    // Agrega más fotos de ustedes aquí, separadas por coma
 ];
 
-// 3. TUS POEMAS Y MENSAJES
+// ==========================================
+// GALERÍA: IMÁGENES QUE ME RECUERDAN A TI
+// ==========================================
+const imagenesRecuerdos = [
+    { imagen: "https://i.imgur.com/xyz3BRF.jpg" },
+    { imagen: "https://i.imgur.com/emfM6li.jpg" },
+    { imagen: "https://i.imgur.com/B1mID8S.jpg" },
+    { imagen: "https://i.imgur.com/ElazJlW.jpg" }
+];
+
+// ==========================================
+// TUS POEMAS Y MENSAJES (Cartas)
+// ==========================================
 const mensajes = [
     {
         fecha: "⭐",
@@ -35,38 +48,39 @@ const mensajes = [
 ];
 
 // ==========================================
-// NO TOQUES NADA DE AQUÍ PARA ABAJO
+// FUNCIONES DE CARGA
 // ==========================================
 
-const LATIDOS_POR_MINUTO = 80;
-const LATIDOS_POR_SEGUNDO = LATIDOS_POR_MINUTO / 60;
-
-function cargarContador() {
-    const ahora = new Date().getTime();
-    const diferenciaEnMilisegundos = ahora - fechaEspecial;
-    const diferenciaEnSegundos = Math.floor(diferenciaEnMilisegundos / 1000);
-    const latidosTotales = Math.floor(diferenciaEnSegundos * LATIDOS_POR_SEGUNDO);
-    const latidosFormateados = latidosTotales.toLocaleString('es-ES');
-    document.getElementById('contador').innerHTML = "❤️ " + latidosFormateados + " latidos";
+function cargarGaleriaNosotros() {
+    const contenedor = document.getElementById('galeria-nosotros');
+    if (!contenedor) return;
     
-    // Sincronizar la línea de vida con el latido
-    const linea = document.querySelector('.linea-vida svg');
-    if (linea) {
-        linea.style.animationDuration = (60 / LATIDOS_POR_MINUTO) + 's';
-    }
+    let html = '';
+    fotosNosotros.forEach(function(foto) {
+        html += '<div class="tarjeta-galeria solo-foto">';
+        html += '<img src="' + foto.imagen + '" alt="' + foto.descripcion + '" onclick="abrirLightbox(\'' + foto.imagen + '\')" style="cursor: pointer;">';
+        html += '</div>';
+    });
+    contenedor.innerHTML = html;
 }
 
-function cargarGaleria() {
-    const contenedor = document.getElementById('galeria');
+function cargarGaleriaRecuerdos() {
+    const contenedor = document.getElementById('galeria-recuerdos');
+    if (!contenedor) return;
+    
     let html = '';
-    fotos.forEach(function(foto) {
-        html += '<img src="' + foto + '" alt="Momento especial">';
+    imagenesRecuerdos.forEach(function(item) {
+        html += '<div class="tarjeta-galeria solo-foto">';
+        html += '<img src="' + item.imagen + '" alt="Recuerdo" onclick="abrirLightbox(\'' + item.imagen + '\')" style="cursor: pointer;">';
+        html += '</div>';
     });
     contenedor.innerHTML = html;
 }
 
 function cargarMensajes() {
     const contenedor = document.getElementById('lista-mensajes');
+    if (!contenedor) return;
+    
     let html = '';
     mensajes.forEach(function(mensaje) {
         html += '<div class="mensaje-item">';
@@ -77,8 +91,28 @@ function cargarMensajes() {
     contenedor.innerHTML = html;
 }
 
-cargarContador();
-cargarGaleria();
-cargarMensajes();
+// ==========================================
+// LIGHTBOX (IMAGEN AGRANDADA)
+// ==========================================
+function abrirLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    if (lightbox && img) {
+        img.src = src;
+        lightbox.classList.add('activo');
+    }
+}
 
-setInterval(cargarContador, 1000);
+function cerrarLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.classList.remove('activo');
+    }
+}
+
+// ==========================================
+// EJECUTAR AL INICIAR
+// ==========================================
+cargarGaleriaNosotros();
+cargarGaleriaRecuerdos();
+cargarMensajes();

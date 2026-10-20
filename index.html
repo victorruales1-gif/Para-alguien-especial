@@ -396,8 +396,8 @@
             document.getElementById('sub-saludo-hora').innerHTML = subSaludo;
         }
         
-        // ==========================================
-        // PELÍCULAS
+               // ==========================================
+        // PELÍCULAS EN FIREBASE (COLECCIÓN SEPARADA)
         // ==========================================
         function agregarPelicula() {
             const input = document.getElementById('nueva-pelicula');
@@ -408,33 +408,46 @@
                 return;
             }
             
-            const listaPeliculas = document.getElementById('lista-peliculas');
-            const nuevoElemento = document.createElement('div');
-            nuevoElemento.className = 'mensaje-item';
-            nuevoElemento.style.margin = '10px 0';
-            nuevoElemento.innerHTML = '<p>🎬 "' + texto + '" — Agregada por ti ❤️</p>';
-            
-            listaPeliculas.appendChild(nuevoElemento);
-            
-            const peliculasGuardadas = JSON.parse(localStorage.getItem('peliculas') || '[]');
-            peliculasGuardadas.push(texto);
-            localStorage.setItem('peliculas', JSON.stringify(peliculasGuardadas));
-            
-            input.value = '';
-        }
-        
-        function cargarPeliculasGuardadas() {
-            const peliculasGuardadas = JSON.parse(localStorage.getItem('peliculas') || '[]');
-            const listaPeliculas = document.getElementById('lista-peliculas');
-            
-            peliculasGuardadas.forEach(function(pelicula) {
-                const nuevoElemento = document.createElement('div');
-                nuevoElemento.className = 'mensaje-item';
-                nuevoElemento.style.margin = '10px 0';
-                nuevoElemento.innerHTML = '<p>🎬 "' + pelicula + '" — Agregada por ti ❤️</p>';
-                listaPeliculas.appendChild(nuevoElemento);
+            db.collection('peliculas-pequena').add({
+                titulo: texto,
+                fecha: new Date().toLocaleDateString('es-ES'),
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(function() {
+                input.value = '';
+                // No hace falta recargar nada, Firebase lo hace solo
+            }).catch(function(error) {
+                console.error('Error:', error);
+                alert('Hubo un error al guardar la película.');
             });
         }
+        
+        // Escuchar cambios en tiempo real de las películas
+        db.collection('peliculas-pequena')
+            .orderBy('timestamp', 'asc')
+            .onSnapshot(function(snapshot) {
+                const listaPeliculas = document.getElementById('lista-peliculas');
+                if (!listaPeliculas) return;
+                
+                // Limpiamos la lista, dejando solo el contenedor base
+                listaPeliculas.innerHTML = '<div class="mensaje-item" id="contenedor-base-peliculas">' +
+                    '<p>🎬 "Cuestión de Tiempo" — Porque el tiempo contigo es mi favorito.</p>' +
+                    '<p>🎬 "Antes de Amanecer" — Para caminar y hablar sin parar.</p>' +
+                    '<p>🎬 "La La Land" — Para cantar y soñar despiertos.</p>' +
+                    '<p>🎬 "Up" — Para recordar que el amor es la aventura más grande.</p>' +
+                    '</div>';
+                
+                const contenedorBase = document.getElementById('contenedor-base-peliculas');
+                
+                snapshot.forEach(function(doc) {
+                    const data = doc.data();
+                    const nuevoElemento = document.createElement('div');
+                    nuevoElemento.className = 'mensaje-item';
+                    nuevoElemento.style.margin = '10px 0';
+                    // Le agregamos un pequeño emoji para saber que fue agregada por ustedes
+                    nuevoElemento.innerHTML = '<p>🍿 "' + data.titulo + '" — Agregada por nosotros ❤️</p>';
+                    listaPeliculas.appendChild(nuevoElemento);
+                });
+            });
         
         // ==========================================
         // PREGUNTAS EN FIREBASE (COLECCIÓN SEPARADA)
@@ -550,7 +563,6 @@
         
         // Cargar todo al iniciar
         cargarMensajePorHora();
-        cargarPeliculasGuardadas();
     </script>
 </body>
 </html>
